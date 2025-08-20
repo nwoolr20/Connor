@@ -1,0 +1,211 @@
+# Connor System Configuration
+{
+  "system": {
+    "name": "Connor Multi-Agent System",
+    "version": "1.0.0",
+    "max_agents": 50,
+    "max_families": 10,
+    "processing_timeout": 300,
+    "health_check_interval": 30,
+    "auto_scaling": true,
+    "performance_monitoring": true
+  },
+  
+  "agents": {
+    "sra": {
+      "name": "Simple Reflex Agent",
+      "instances": 3,
+      "priority": 1,
+      "max_processing_time": 5,
+      "auto_scale": true,
+      "scale_threshold": 0.8
+    },
+    "mbr": {
+      "name": "Model-Based Reflex Agent", 
+      "instances": 2,
+      "priority": 2,
+      "max_processing_time": 15,
+      "auto_scale": true,
+      "scale_threshold": 0.7
+    },
+    "gap": {
+      "name": "Goal-Based Agent-Planner",
+      "instances": 2,
+      "priority": 3,
+      "max_processing_time": 30,
+      "auto_scale": true,
+      "scale_threshold": 0.6
+    },
+    "la": {
+      "name": "Learning Agent",
+      "instances": 4,
+      "priority": 4,
+      "max_processing_time": 10,
+      "auto_scale": true,
+      "scale_threshold": 0.75,
+      "family_management": true
+    },
+    "uba": {
+      "name": "Utility-Based Agent",
+      "instances": 2,
+      "priority": 5,
+      "max_processing_time": 20,
+      "auto_scale": true,
+      "scale_threshold": 0.65
+    },
+    "aa": {
+      "name": "Apprentice Agent",
+      "instances": 3,
+      "priority": 6,
+      "max_processing_time": 8,
+      "auto_scale": true,
+      "scale_threshold": 0.8
+    }
+  },
+  
+  "learning": {
+    "pattern_retention_days": 30,
+    "performance_history_days": 7,
+    "auto_optimize": true,
+    "learning_rate": 0.1,
+    "family_lifecycle": {
+      "child_max_age_days": 7,
+      "parent_max_age_days": 30,
+      "grandparent_max_age_days": 90,
+      "archive_retention_days": 365
+    },
+    "pattern_matching": {
+      "similarity_threshold": 0.8,
+      "max_patterns_per_agent": 1000,
+      "pattern_cleanup_interval_hours": 24
+    }
+  },
+  
+  "monitoring": {
+    "enabled": true,
+    "log_level": "INFO",
+    "health_check_interval": 30,
+    "performance_metrics_interval": 60,
+    "alert_thresholds": {
+      "health_score": 70,
+      "processing_time": 10.0,
+      "memory_usage": 85,
+      "cpu_usage": 80,
+      "error_rate": 0.05,
+      "response_time": 5.0
+    },
+    "alerting": {
+      "enabled": true,
+      "email_notifications": false,
+      "webhook_notifications": false,
+      "log_alerts": true
+    },
+    "metrics_retention": {
+      "health_checks": 168,
+      "performance_metrics": 72,
+      "alert_history": 720
+    }
+  },
+  
+  "automation": {
+    "auto_update": {
+      "enabled": true,
+      "check_interval_hours": 24,
+      "auto_deploy": false,
+      "backup_before_update": true,
+      "rollback_on_failure": true
+    },
+    "auto_scaling": {
+      "enabled": true,
+      "scale_up_threshold": 0.8,
+      "scale_down_threshold": 0.3,
+      "cooldown_minutes": 5,
+      "max_scale_factor": 3
+    },
+    "maintenance": {
+      "auto_cleanup": true,
+      "log_rotation_days": 7,
+      "backup_retention_days": 30,
+      "pattern_cleanup_enabled": true,
+      "performance_optimization": true
+    },
+    "deployment": {
+      "environment": "local",
+      "auto_deploy_branches": ["main"],
+      "deployment_validation": true,
+      "health_check_post_deploy": true,
+      "rollback_timeout_minutes": 5
+    }
+  },
+  
+  "security": {
+    "input_validation": true,
+    "rate_limiting": {
+      "enabled": true,
+      "requests_per_minute": 60,
+      "burst_limit": 100
+    },
+    "access_control": {
+      "enabled": false,
+      "require_authentication": false,
+      "admin_endpoints_protected": true
+    },
+    "data_protection": {
+      "encrypt_sensitive_data": false,
+      "secure_communications": false,
+      "audit_logging": true
+    }
+  },
+  
+  "integration": {
+    "forge_integration": {
+      "enabled": true,
+      "agent_protocol_compliance": true,
+      "artifact_generation": true
+    },
+    "external_apis": {
+      "enabled": false,
+      "timeout_seconds": 30,
+      "retry_attempts": 3,
+      "rate_limiting": true
+    },
+    "database": {
+      "type": "sqlite",
+      "connection_pool_size": 5,
+      "query_timeout": 30,
+      "auto_vacuum": true
+    }
+  },
+  
+  "logging": {
+    "level": "INFO",
+    "format": "structured",
+    "output": ["console", "file"],
+    "file_rotation": {
+      "max_size_mb": 100,
+      "backup_count": 5
+    },
+    "performance_logging": true,
+    "audit_logging": true,
+    "error_tracking": true
+  },
+  
+  "testing": {
+    "auto_testing": {
+      "enabled": true,
+      "test_on_startup": true,
+      "continuous_testing": false,
+      "performance_testing": true
+    },
+    "test_data": {
+      "generate_synthetic": true,
+      "use_historical": true,
+      "anonymize_data": true
+    },
+    "coverage": {
+      "minimum_threshold": 80,
+      "fail_on_low_coverage": false,
+      "include_integration_tests": true
+    }
+  }
+}

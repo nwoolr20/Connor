@@ -1,0 +1,434 @@
+name: Connor System CI/CD
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    # Run daily health checks at 6 AM UTC
+    - cron: '0 6 * * *'
+
+env:
+  PYTHON_VERSION: '3.10'
+  POETRY_VERSION: '1.7.1'
+
+jobs:
+  setup-and-lint:
+    runs-on: ubuntu-latest
+    name: Setup and Code Quality
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Load cached venv
+      id: cached-poetry-dependencies
+      uses: actions/cache@v3
+      with:
+        path: autogpts/forge/.venv
+        key: venv-${{ runner.os }}-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
+    
+    - name: Install dependencies
+      if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Run Connor setup automation
+      run: |
+        make ci-setup
+    
+    - name: Code formatting check
+      run: |
+        cd autogpts/forge
+        poetry run black --check forge/connor/
+        poetry run isort --check-only forge/connor/
+    
+    - name: Linting
+      run: |
+        make lint
+    
+    - name: Security scan
+      run: |
+        make security
+      continue-on-error: true
+    
+    - name: Upload lint reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: lint-reports
+        path: reports/
+
+  test-connor-system:
+    runs-on: ubuntu-latest
+    name: Connor System Tests
+    needs: setup-and-lint
+    
+    strategy:
+      matrix:
+        test-type: [unit, integration, standalone]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Load cached venv
+      uses: actions/cache@v3
+      with:
+        path: autogpts/forge/.venv
+        key: venv-${{ runner.os }}-${{ env.PYTHON_VERSION }}-${{ hashFiles('**/poetry.lock') }}
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Setup Connor system
+      run: |
+        make setup-directories
+        make configure-environment
+    
+    - name: Run unit tests
+      if: matrix.test-type == 'unit'
+      run: |
+        make test-unit
+    
+    - name: Run integration tests  
+      if: matrix.test-type == 'integration'
+      run: |
+        make test-integration
+    
+    - name: Run standalone tests
+      if: matrix.test-type == 'standalone'
+      run: |
+        make test-standalone
+    
+    - name: Upload test results
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: test-results-${{ matrix.test-type }}
+        path: |
+          reports/tests/
+          logs/
+
+  performance-testing:
+    runs-on: ubuntu-latest
+    name: Performance Testing
+    needs: test-connor-system
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Setup Connor system
+      run: |
+        make setup-directories
+        make configure-environment
+    
+    - name: Run performance tests
+      run: |
+        make test-performance
+    
+    - name: Run benchmark tests
+      run: |
+        make benchmark
+    
+    - name: Upload performance reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: performance-reports
+        path: |
+          reports/performance*
+          reports/profile.stats
+
+  health-monitoring:
+    runs-on: ubuntu-latest
+    name: System Health Check
+    needs: [setup-and-lint, test-connor-system]
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Setup Connor system
+      run: |
+        make setup
+    
+    - name: Run health checks
+      run: |
+        make health
+    
+    - name: Run system monitor (one-shot)
+      run: |
+        python scripts/monitor.py --one-shot
+    
+    - name: Upload health reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: health-reports
+        path: |
+          logs/
+          reports/
+
+  demo-automation:
+    runs-on: ubuntu-latest
+    name: Automated Demo
+    needs: health-monitoring
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Setup Connor system
+      run: |
+        make setup
+    
+    - name: Run automated demo
+      run: |
+        make demo-automated
+    
+    - name: Upload demo logs
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: demo-results
+        path: |
+          reports/demo.log
+          logs/
+
+  deployment-staging:
+    runs-on: ubuntu-latest
+    name: Staging Deployment
+    needs: [performance-testing, health-monitoring]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/develop'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Deploy to staging
+      run: |
+        python scripts/deploy.py --env staging
+    
+    - name: Verify staging deployment
+      run: |
+        make health
+        make demo-automated
+    
+    - name: Upload deployment reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: staging-deployment
+        path: |
+          reports/deployment_report.json
+          logs/
+
+  deployment-production:
+    runs-on: ubuntu-latest
+    name: Production Deployment
+    needs: [performance-testing, health-monitoring, demo-automation]
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    environment: production
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Run production readiness check
+      run: |
+        make production-ready
+    
+    - name: Deploy to production
+      run: |
+        python scripts/deploy.py --env production
+    
+    - name: Verify production deployment
+      run: |
+        make health
+        sleep 30  # Allow system to stabilize
+        make health  # Double-check
+    
+    - name: Upload production deployment reports
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: production-deployment
+        path: |
+          reports/deployment_report.json
+          logs/
+
+  scheduled-health-check:
+    runs-on: ubuntu-latest
+    name: Daily Health Check
+    if: github.event_name == 'schedule'
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+    
+    - name: Install Poetry
+      uses: snok/install-poetry@v1
+      with:
+        version: ${{ env.POETRY_VERSION }}
+        virtualenvs-create: true
+        virtualenvs-in-project: true
+    
+    - name: Install dependencies
+      run: |
+        cd autogpts/forge
+        poetry install --with dev
+    
+    - name: Setup and health check
+      run: |
+        make setup
+        make health
+    
+    - name: Run extended monitoring
+      run: |
+        timeout 300 python scripts/monitor.py --interval 10 || true
+    
+    - name: Upload daily health report
+      uses: actions/upload-artifact@v3
+      if: always()
+      with:
+        name: daily-health-${{ github.run_number }}
+        path: |
+          logs/
+          reports/
+        retention-days: 30
+
+  notify-on-failure:
+    runs-on: ubuntu-latest
+    name: Failure Notification
+    needs: [setup-and-lint, test-connor-system, performance-testing, health-monitoring]
+    if: failure()
+    
+    steps:
+    - name: Create failure summary
+      run: |
+        echo "## Connor CI/CD Pipeline Failure" >> failure_summary.md
+        echo "**Branch:** ${{ github.ref_name }}" >> failure_summary.md  
+        echo "**Commit:** ${{ github.sha }}" >> failure_summary.md
+        echo "**Run:** ${{ github.run_number }}" >> failure_summary.md
+        echo "**Time:** $(date)" >> failure_summary.md
+        echo "" >> failure_summary.md
+        echo "Please check the failed jobs and artifacts for details." >> failure_summary.md
+    
+    - name: Upload failure summary
+      uses: actions/upload-artifact@v3
+      with:
+        name: failure-summary-${{ github.run_number }}
+        path: failure_summary.md
