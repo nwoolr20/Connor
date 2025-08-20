@@ -1,0 +1,487 @@
+{
+  "timestamp": "2025-08-20 23:24:01",
+  "total_duration": 2.20004940032959,
+  "total_tests": 32,
+  "health_score": 34.375,
+  "summary_by_status": {
+    "FAIL": 19,
+    "PASS": 11,
+    "WARNING": 2
+  },
+  "summary_by_component": {
+    "Core Modules": {
+      "PASS": 0,
+      "FAIL": 8,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Connor System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent Types": {
+      "PASS": 0,
+      "FAIL": 6,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Memory System": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "CLI Interfaces": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Configuration": {
+      "PASS": 1,
+      "FAIL": 2,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Dependencies": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "File Structure": {
+      "PASS": 4,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Performance": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Dependencies",
+      "issue": "Core module import failures",
+      "recommendation": "Install missing dependencies using poetry install or pip install",
+      "action": "Run: cd autogpts/forge && poetry install"
+    },
+    {
+      "priority": "HIGH",
+      "category": "Architecture",
+      "issue": "Agent type failures",
+      "recommendation": "Review agent implementations for missing methods or dependencies",
+      "action": "Check agent class implementations and inheritance structure"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Configuration",
+      "issue": "Configuration file issues",
+      "recommendation": "Create missing configuration files",
+      "action": "Run: make configure-environment"
+    },
+    {
+      "priority": "MEDIUM",
+      "category": "Performance",
+      "issue": "Performance bottlenecks detected",
+      "recommendation": "Optimize slow-loading modules and dependencies",
+      "action": "Profile import times and optimize heavy dependencies"
+    },
+    {
+      "priority": "LOW",
+      "category": "Maintenance",
+      "issue": "Components with warnings: Configuration, File Structure",
+      "recommendation": "Address warning conditions to improve system reliability",
+      "action": "Review detailed audit results for specific warning fixes"
+    }
+  ],
+  "detailed_results": [
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.base",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 1.6497197151184082,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.connor_system",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0006284713745117188,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.sra",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0005741119384765625,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.la",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0005559921264648438,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.uba",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0005681514739990234,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.aa",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0005545616149902344,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.gap",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0005841255187988281,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.mbr",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0005557537078857422,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent System",
+      "test_name": "AgentConfig Creation",
+      "status": "FAIL",
+      "message": "Failed to create agent config: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Connor System",
+      "test_name": "System Initialization",
+      "status": "FAIL",
+      "message": "Failed to initialize Connor system: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 179, in audit_connor_system\n    from forge.connor.connor_system import ConnorSystem\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 7, in <module>\n    from fastapi import APIRouter, FastAPI, UploadFile\nModuleNotFoundError: No module named 'fastapi'\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "SRA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "LA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "UBA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "AA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "GAP Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "MBR Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'fastapi'",
+      "details": {
+        "error": "No module named 'fastapi'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Memory System",
+      "test_name": "Memory Module Import",
+      "status": "PASS",
+      "message": "Successfully imported memory modules",
+      "details": {
+        "modules": [
+          "MemStore",
+          "ChromaMemStore"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "connor_cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 9382
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 33107
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "demo_connor.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 14200
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "connor_config.json Validation",
+      "status": "FAIL",
+      "message": "Error reading file: Expecting value: line 1 column 1 (char 0)",
+      "details": {
+        "error": "Expecting value: line 1 column 1 (char 0)"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Configuration",
+      "test_name": ".env Existence",
+      "status": "WARNING",
+      "message": "Configuration file not found",
+      "details": {
+        "expected_path": "/home/runner/work/Connor/Connor/.env"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "Makefile Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 10148
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "pyproject.toml Existence",
+      "status": "FAIL",
+      "message": "Configuration file not found",
+      "details": {
+        "expected_path": "/home/runner/work/Connor/Connor/pyproject.toml"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "Poetry Lock File",
+      "status": "PASS",
+      "message": "Poetry lock file exists",
+      "details": {
+        "file_size": 429612
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "PyProject Configuration",
+      "status": "PASS",
+      "message": "PyProject.toml exists",
+      "details": {
+        "file_size": 1827
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/connor",
+      "status": "PASS",
+      "message": "Directory exists with 12 items",
+      "details": {
+        "file_count": 12
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/memory",
+      "status": "PASS",
+      "message": "Directory exists with 8 items",
+      "details": {
+        "file_count": 8
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists with 3 items",
+      "details": {
+        "file_count": 3
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory docs",
+      "status": "PASS",
+      "message": "Directory exists with 84 items",
+      "details": {
+        "file_count": 84
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Package Initialization",
+      "status": "WARNING",
+      "message": "Missing __init__.py in 27 directories",
+      "details": {
+        "missing_inits": [
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/utils",
+          "/home/runner/work/Connor/Connor/autogpts/autogpt/tests/unit/models",
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/reports/processing",
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/challenges/verticals/code/1_three_sum/custom_python",
+          "/home/runner/work/Connor/Connor/autogpts/autogpt/autogpt/agent_factory",
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/challenges/deprecated/code/d3.1_three_sum/custom_python",
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/challenges/deprecated/safety/s3_instructions/custom_python",
+          "/home/runner/work/Connor/Connor/autogpts/autogpt/autogpt/agents/prompt_strategies",
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/challenges/deprecated/code/4_tests/custom_python",
+          "/home/runner/work/Connor/Connor/benchmark/agbenchmark/challenges/verticals/code/5_tic_tac_toe/custom_python"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    },
+    {
+      "component": "Performance",
+      "test_name": "Performance Benchmarks",
+      "status": "FAIL",
+      "message": "Error running benchmarks: division by zero",
+      "details": {
+        "error": "division by zero"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:24:01"
+    }
+  ]
+}
