@@ -1,4 +1,5 @@
 from forge.actions import ActionRegister
+from forge.connor_agent import ConnorForgeAgent
 from forge.sdk import (
     Agent,
     AgentDB,
@@ -13,7 +14,7 @@ from forge.sdk import (
 LOG = ForgeLogger(__name__)
 
 
-class ForgeAgent(Agent):
+class ForgeAgent(ConnorForgeAgent):
     """
     The goal of the Forge is to take care of the boilerplate code, so you can focus on
     agent design.
@@ -85,62 +86,22 @@ class ForgeAgent(Agent):
         We are hooking into function to add a custom log message. Though you can do anything you
         want here.
         """
-        task = await super().create_task(task_request)
-        LOG.info(
-            f"📦 Task created: {task.task_id} input: {task.input[:40]}{'...' if len(task.input) > 40 else ''}"
-        )
-        return task
+        # Use Connor system's create_task method
+        return await super().create_task(task_request)
 
     async def execute_step(self, task_id: str, step_request: StepRequestBody) -> Step:
         """
-        For a tutorial on how to add your own logic please see the offical tutorial series:
-        https://aiedge.medium.com/autogpt-forge-e3de53cc58ec
+        Execute step using the Connor multi-agent system.
 
-        The agent protocol, which is the core of the Forge, works by creating a task and then
-        executing steps for that task. This method is called when the agent is asked to execute
-        a step.
+        The Connor system provides a sophisticated multi-agent approach:
+        - Simple Reflex Agents (SRAs) for quick input classification and tagging
+        - Model-Based Reflex Agents (MBRs) for context-aware processing  
+        - Goal-Based Agents-Planners (GAPs) for strategic planning and execution
+        - Learning Agents (LAs) for monitoring and continuous improvement
+        - Utility-Based Agents (UBAs) for optimization and decision making
+        - Apprentice Agents (AAs) for family coordination and information access
 
-        The task that is created contains an input string, for the benchmarks this is the task
-        the agent has been asked to solve and additional input, which is a dictionary and
-        could contain anything.
-
-        If you want to get the task use:
-
-        ```
-        task = await self.db.get_task(task_id)
-        ```
-
-        The step request body is essentially the same as the task request and contains an input
-        string, for the benchmarks this is the task the agent has been asked to solve and
-        additional input, which is a dictionary and could contain anything.
-
-        You need to implement logic that will take in this step input and output the completed step
-        as a step object. You can do everything in a single step or you can break it down into
-        multiple steps. Returning a request to continue in the step output, the user can then decide
-        if they want the agent to continue or not.
+        The forefront process flows: SRA → MBR → GAP with LA monitoring and UBA optimization.
         """
-        # An example that
-        step = await self.db.create_step(
-            task_id=task_id, input=step_request, is_last=True
-        )
-
-        self.workspace.write(task_id=task_id, path="output.txt", data=b"Washington D.C")
-
-        await self.db.create_artifact(
-            task_id=task_id,
-            step_id=step.step_id,
-            file_name="output.txt",
-            relative_path="",
-            agent_created=True,
-        )
-
-        step.output = "Washington D.C"
-
-        LOG.info(
-            f"\t✅ Final Step completed: {step.step_id}. \n"
-            + f"Output should be placeholder text Washington D.C. You'll need to \n"
-            + f"modify execute_step to include LLM behavior. Follow the tutorial "
-            + f"if confused. "
-        )
-
-        return step
+        # Use Connor system's execute_step method
+        return await super().execute_step(task_id, step_request)
