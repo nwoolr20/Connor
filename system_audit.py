@@ -148,8 +148,7 @@ class ConnorSystemAuditor:
             start_time = time.time()
             config = AgentConfig(
                 agent_id="test_agent",
-                agent_type=AgentType.SRA,
-                name="Test Agent"
+                agent_type=AgentType.SRA
             )
             duration = time.time() - start_time
             
@@ -584,7 +583,8 @@ class ConnorSystemAuditor:
                 except:
                     import_times[module_name] = -1  # Failed import
             
-            avg_import_time = sum(t for t in import_times.values() if t > 0) / len([t for t in import_times.values() if t > 0])
+            successful_times = [t for t in import_times.values() if t > 0]
+            avg_import_time = sum(successful_times) / len(successful_times) if successful_times else 0
             
             if avg_import_time < 1.0:
                 status = 'PASS'

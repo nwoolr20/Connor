@@ -1,0 +1,86 @@
+{
+  "model_info": {
+    "name": "Connor Dialog Model",
+    "version": "1.0.0",
+    "timestamp": "20250821_000238",
+    "training_stats": {
+      "total_dialogs": 7,
+      "total_turns": 44,
+      "unique_speakers": 2,
+      "avg_turns_per_dialog": 6.285714285714286,
+      "domains": [
+        "work",
+        "empathetic",
+        "conversational",
+        "persona_chat",
+        "education",
+        "travel"
+      ],
+      "training_time": 2.07820463180542,
+      "performance_metrics": {
+        "dailydialog": {
+          "dialogs_processed": 0,
+          "successful_interactions": 0,
+          "average_response_time": 0.0,
+          "coverage_score": 0.0
+        },
+        "convai2": {
+          "dialogs_processed": 0,
+          "successful_interactions": 0,
+          "average_response_time": 0.0,
+          "coverage_score": 0.0
+        },
+        "empathetic_dialogues": {
+          "dialogs_processed": 0,
+          "successful_interactions": 0,
+          "average_response_time": 0.0,
+          "coverage_score": 0.0
+        },
+        "cornell_movie": {
+          "dialogs_processed": 0,
+          "successful_interactions": 0,
+          "average_response_time": 0.0,
+          "coverage_score": 0.0
+        }
+      }
+    }
+  },
+  "test_timestamp": "2025-08-21 00:02:38",
+  "total_tests": 5,
+  "successful_tests": 0,
+  "success_rate": 0.0,
+  "average_response_time": 0.0,
+  "test_results": [
+    {
+      "test_name": "Casual Conversation",
+      "input": "Hi, how are you doing today?",
+      "success": false,
+      "error": "'ConnorSystem' object has no attribute 'process_request'"
+    },
+    {
+      "test_name": "Work Discussion",
+      "input": "I'm having trouble with my project deadline. Any advice?",
+      "success": false,
+      "error": "'ConnorSystem' object has no attribute 'process_request'"
+    },
+    {
+      "test_name": "Travel Planning",
+      "input": "I'm planning a trip to Japan. What should I know?",
+      "success": false,
+      "error": "'ConnorSystem' object has no attribute 'process_request'"
+    },
+    {
+      "test_name": "Emotional Support",
+      "input": "I'm feeling really down today. Nothing seems to be going right.",
+      "success": false,
+      "error": "'ConnorSystem' object has no attribute 'process_request'"
+    },
+    {
+      "test_name": "Technical Question",
+      "input": "Can you explain how machine learning works in simple terms?",
+      "success": false,
+      "error": "'ConnorSystem' object has no attribute 'process_request'"
+    }
+  ],
+  "overall_status": "FAIL"
+}
