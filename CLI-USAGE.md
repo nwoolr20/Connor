@@ -2,6 +2,18 @@
 
 This document describes how to interact with the project's CLI (Command Line Interface). It includes the types of outputs you can expect from each command. Note that the `agents stop` command will terminate any process running on port 8000.
 
+### Connor System Integration
+
+Connor is now fully integrated into the main CLI system. You can access Connor functionality through multiple entry points:
+
+**Console Scripts (Recommended):**
+- `connor` - Main CLI with Connor integration
+- `connor-cli` - Connor-specific automation CLI
+
+**Direct Python execution (Fallback):**
+- `python cli.py` - Main CLI 
+- `python connor_cli.py` - Connor automation CLI
+
 ### 1. Entry Point for the CLI
 
 Running the `./run` command without any parameters will display the help message, which provides a list of available commands and options. Additionally, you can append `--help` to any command to view help information specific to that command.
@@ -48,6 +60,44 @@ Installation has been completed.
 This command initializes the setup of the project.
 
 ### 3. Agents Commands
+
+#### Starting Connor Agent
+
+The Connor multi-agent system can be started through the main CLI:
+
+```sh
+connor agent start connor
+```
+
+**Output**:
+```
+🤖 Starting Connor Multi-Agent System...
+Starting Connor system...
+✅ Connor system started!
+✅ Connor system started successfully
+```
+
+**Alternative Connor-specific commands:**
+
+```sh
+connor-cli start
+```
+
+**Output**:
+```
+Starting Connor system...
+✅ Connor system started!
+```
+
+#### Creating Regular Agents
+
+For creating other agents (not Connor):
+
+```sh
+connor agent create my_agent
+```
+
+**Note**: Connor is a built-in system and cannot be created like other agents. It's available by default.
 
 **a. List All Agents**
 

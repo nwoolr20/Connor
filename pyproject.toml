@@ -5,9 +5,19 @@ description = "Connor Multi-Agent System - A comprehensive agent-based AI system
 authors = ["Connor Development Team"]
 license = "MIT"
 readme = "README.md"
+packages = [
+    {include = "connor"},
+    {include = "forge", from = "autogpts/forge"},
+    {include = "scripts"}
+]
+
+[tool.poetry.scripts]
+connor = "cli:main"
+connor-cli = "connor_cli:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+click = "^8.0.0"
 fastapi = "^0.116.0"
 litellm = "^1.75.0"
 chromadb = "^1.0.0"
@@ -35,6 +45,10 @@ black = "^23.3.0"
 isort = "^5.12.0"
 flake8 = "^6.0.0"
 mypy = "^1.4.0"
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.4.0"
+pytest-asyncio = "^0.21.0"
 
 [build-system]
 requires = ["poetry-core"]

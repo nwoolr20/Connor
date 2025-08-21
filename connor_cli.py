@@ -197,7 +197,7 @@ Examples:
     
     return parser
 
-async def main():
+async def main_async():
     """Main CLI entry point."""
     parser = create_parser()
     args = parser.parse_args()
@@ -242,5 +242,12 @@ async def main():
         parser.print_help()
         sys.exit(1)
 
+
+def main():
+    """Main entry point for console script."""
+    import asyncio
+    asyncio.run(main_async())
+
+
 if __name__ == "__main__":
-    asyncio.run(main())
+    asyncio.run(main_async())

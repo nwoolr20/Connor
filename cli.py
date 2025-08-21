@@ -220,6 +220,12 @@ def create(agent_name):
     import re
     import shutil
 
+    # Special handling for Connor agent
+    if agent_name.lower() == "connor":
+        click.echo(click.style("ℹ️  Connor agent is already available as part of the system.", fg="blue"))
+        click.echo("Use 'connor start --agent connor' or 'connor-cli start' to start the Connor system.")
+        return
+
     if not re.match(r"\w*$", agent_name):
         click.echo(
             click.style(
@@ -267,6 +273,19 @@ def start(agent_name, no_setup):
     """Start agent command"""
     import os
     import subprocess
+
+    # Special handling for Connor agent
+    if agent_name.lower() == "connor":
+        click.echo(f"🤖 Starting Connor Multi-Agent System...")
+        try:
+            # Use the connor-cli start command
+            subprocess.check_call(["connor-cli", "start"])
+            click.echo("✅ Connor system started successfully")
+        except subprocess.CalledProcessError as e:
+            click.echo(click.style(f"❌ Failed to start Connor: {e}", fg="red"))
+        except FileNotFoundError:
+            click.echo(click.style("❌ connor-cli command not found. Please ensure Connor is properly installed.", fg="red"))
+        return
 
     script_dir = os.path.dirname(os.path.realpath(__file__))
     agent_dir = os.path.join(script_dir, f"autogpts/{agent_name}")
@@ -927,6 +946,11 @@ def wait_until_conn_ready(port: int = 8000, timeout: int = 30):
                 break
         if time.time() > start + timeout:
             raise TimeoutError(f"Port {port} did not open within {timeout} seconds")
+
+
+def main():
+    """Main entry point for console script."""
+    cli()
 
 
 if __name__ == "__main__":
