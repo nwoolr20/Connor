@@ -16,6 +16,80 @@
 - ⚡ **High Performance**: 2,257 operations/second with excellent resource efficiency
 - 🔍 **Complete Observability**: Comprehensive monitoring and health assessment tools
 
+## 🚀 Quick Start & Installation
+
+### Prerequisites
+
+- Python 3.10+ 
+- Git
+
+### Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/nwoolr20/Connor.git
+   cd Connor
+   ```
+
+2. **Create and activate virtual environment**:
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+   ```
+
+3. **Install Connor in editable mode**:
+   ```bash
+   pip install -e .
+   ```
+
+4. **Verify installation**:
+   ```bash
+   connor --help
+   connor-cli --help
+   python -c "import forge; import connor; print('✅ All imports successful')"
+   ```
+
+### Usage
+
+**Main CLI Interface:**
+```bash
+# Get help
+connor --help
+
+# Start Connor agent through main CLI
+connor agent start connor
+
+# Access other system commands
+connor setup
+connor agent create my_agent
+```
+
+**Connor Automation CLI:**
+```bash
+# Connor-specific operations
+connor-cli --help
+connor-cli start     # Start Connor system
+connor-cli health    # Health check
+connor-cli demo      # Run demo
+connor-cli test      # Run tests
+```
+
+**Python Direct Usage:**
+```bash
+# Test the system
+python test_connor.py
+
+# Run integration tests
+python -m pytest tests/ -v
+```
+
+### Expected Warnings (Non-Fatal)
+
+These warnings are expected and do not prevent Connor from working:
+- `poetry: not found` - Connor works with pip installation
+- Missing optional AI/ML dependencies - Core functionality works without them
+- Pydantic deprecation warnings - From dependencies, don't affect functionality
+
 ## 🏗️ System Architecture
 
 Connor operates through six distinct agent types in a carefully orchestrated workflow. The system processes over 2,257 operations per second with a sophisticated multi-agent architecture.

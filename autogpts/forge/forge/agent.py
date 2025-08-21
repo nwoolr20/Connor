@@ -1,5 +1,4 @@
 from forge.actions import ActionRegister
-from forge.connor_agent import ConnorForgeAgent
 from forge.sdk import (
     Agent,
     AgentDB,
@@ -14,7 +13,7 @@ from forge.sdk import (
 LOG = ForgeLogger(__name__)
 
 
-class ForgeAgent(ConnorForgeAgent):
+class ForgeAgent(Agent):
     """
     The goal of the Forge is to take care of the boilerplate code, so you can focus on
     agent design.

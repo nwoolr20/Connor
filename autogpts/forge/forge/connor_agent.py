@@ -7,9 +7,8 @@ This agent serves as the main interface between users and the Connor system.
 
 import asyncio
 import json
-from typing import Any, Dict
+from typing import Any, Dict, List
 from forge.actions import ActionRegister
-from forge.agent import ForgeAgent
 from forge.sdk import (
     Agent,
     AgentDB,
@@ -20,12 +19,12 @@ from forge.sdk import (
     TaskRequestBody,
     Workspace,
 )
-from .connor_system import ConnorSystem
+from forge.connor.connor_system import ConnorSystem
 
 LOG = ForgeLogger(__name__)
 
 
-class ConnorForgeAgent(ForgeAgent):
+class ConnorForgeAgent(Agent):
     """
     Connor Forge Agent that integrates the Connor multi-agent system
     with the AutoGPT Forge framework.
