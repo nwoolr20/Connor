@@ -1,0 +1,71 @@
+{
+  "model_info": {
+    "name": "Connor Dialog Model",
+    "version": "1.0.0",
+    "timestamp": "20250821_000340",
+    "training_stats": {
+      "total_dialogs": 7,
+      "total_turns": 44,
+      "unique_speakers": 2,
+      "avg_turns_per_dialog": 6.285714285714286,
+      "domains": [
+        "conversational",
+        "empathetic",
+        "travel",
+        "work",
+        "persona_chat",
+        "education"
+      ],
+      "training_time": 2.265498638153076,
+      "performance_metrics": {
+        "dailydialog": {
+          "dialogs_processed": 3,
+          "successful_interactions": 15,
+          "average_response_time": 0.022508541742960613,
+          "coverage_score": 250.0
+        },
+        "convai2": {
+          "dialogs_processed": 1,
+          "successful_interactions": 5,
+          "average_response_time": 0.038024187088012695,
+          "coverage_score": 250.0
+        },
+        "empathetic_dialogues": {
+          "dialogs_processed": 2,
+          "successful_interactions": 10,
+          "average_response_time": 0.03616321086883545,
+          "coverage_score": 250.0
+        },
+        "cornell_movie": {
+          "dialogs_processed": 1,
+          "successful_interactions": 7,
+          "average_response_time": 0.048462867736816406,
+          "coverage_score": 350.0
+        }
+      }
+    }
+  },
+  "system_state": {
+    "agents_trained": true,
+    "datasets_used": [
+      "dailydialog",
+      "convai2",
+      "empathetic_dialogues",
+      "cornell_movie"
+    ],
+    "total_training_time": 2.265498638153076
+  },
+  "performance_summary": {
+    "health_score": 100.0,
+    "total_dialogs_trained": 7,
+    "domains_covered": [
+      "conversational",
+      "empathetic",
+      "travel",
+      "work",
+      "persona_chat",
+      "education"
+    ],
+    "average_performance": 275.0
+  }
+}

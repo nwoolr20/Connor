@@ -1,0 +1,330 @@
+{
+  "model_info": {
+    "name": "Connor Dialog Model",
+    "version": "1.0.0",
+    "timestamp": "20250821_000340",
+    "training_stats": {
+      "total_dialogs": 7,
+      "total_turns": 44,
+      "unique_speakers": 2,
+      "avg_turns_per_dialog": 6.285714285714286,
+      "domains": [
+        "conversational",
+        "empathetic",
+        "travel",
+        "work",
+        "persona_chat",
+        "education"
+      ],
+      "training_time": 2.265498638153076,
+      "performance_metrics": {
+        "dailydialog": {
+          "dialogs_processed": 3,
+          "successful_interactions": 15,
+          "average_response_time": 0.022508541742960613,
+          "coverage_score": 250.0
+        },
+        "convai2": {
+          "dialogs_processed": 1,
+          "successful_interactions": 5,
+          "average_response_time": 0.038024187088012695,
+          "coverage_score": 250.0
+        },
+        "empathetic_dialogues": {
+          "dialogs_processed": 2,
+          "successful_interactions": 10,
+          "average_response_time": 0.03616321086883545,
+          "coverage_score": 250.0
+        },
+        "cornell_movie": {
+          "dialogs_processed": 1,
+          "successful_interactions": 7,
+          "average_response_time": 0.048462867736816406,
+          "coverage_score": 350.0
+        }
+      }
+    }
+  },
+  "test_timestamp": "2025-08-21 00:03:40",
+  "total_tests": 5,
+  "successful_tests": 5,
+  "success_rate": 100.0,
+  "average_response_time": 0.0016199111938476562,
+  "test_results": [
+    {
+      "test_name": "Casual Conversation",
+      "input": "Hi, how are you doing today?",
+      "success": true,
+      "response_time": 0.0013587474822998047,
+      "response": {
+        "original_input": "Hi, how are you doing today?",
+        "request_id": "req_1755734620_0",
+        "success": true,
+        "processing_stages": {
+          "sra": {
+            "classification": "greeting",
+            "tags": [
+              "how"
+            ],
+            "quick_response": "Hello! I'm processing your request..."
+          },
+          "mbr": {
+            "confidence": 0.6,
+            "context_applied": 0,
+            "decision": "process_and_route"
+          },
+          "gap": {
+            "goal_created": "Process request: Hi, how are you doing today?",
+            "plan_steps": 4,
+            "estimated_completion": 51.6
+          },
+          "la_monitoring": {
+            "agents_consulted": 2,
+            "average_confidence": 0.5,
+            "recommendations": []
+          },
+          "uba_optimization": {
+            "alternatives_considered": 3,
+            "selected_alternative": "conservative_approach",
+            "expected_utility": 0.8450495049504951
+          }
+        },
+        "final_answer": "Hello! I'm processing your request... I've created a plan to Process request: Hi, how are you doing today?. The next step is: Analyze requirements for: process request: hi, how are you doing today?. I've optimized the approach using conservative_approach.",
+        "system_confidence": 0.7062623762376238,
+        "next_steps": {
+          "action_id": "31aa77d8-f5ba-43f6-a8e7-f3176c5aebc0_action_0",
+          "description": "Analyze requirements for: process request: hi, how are you doing today?",
+          "type": "analysis",
+          "parameters": {
+            "focus": "requirements"
+          },
+          "estimated_duration": 15.0
+        },
+        "learning_applied": true,
+        "optimization_applied": true,
+        "processing_time": 0.0012667179107666016
+      }
+    },
+    {
+      "test_name": "Work Discussion",
+      "input": "I'm having trouble with my project deadline. Any advice?",
+      "success": true,
+      "response_time": 0.001299142837524414,
+      "response": {
+        "original_input": "I'm having trouble with my project deadline. Any advice?",
+        "request_id": "req_1755734620_0",
+        "success": true,
+        "processing_stages": {
+          "sra": {
+            "classification": "general",
+            "tags": [],
+            "quick_response": "I'm processing your input..."
+          },
+          "mbr": {
+            "confidence": 0.6,
+            "context_applied": 0,
+            "decision": "process_and_route"
+          },
+          "gap": {
+            "goal_created": "Process request: I'm having trouble with my project deadline. Any advice?",
+            "plan_steps": 4,
+            "estimated_completion": 51.6
+          },
+          "la_monitoring": {
+            "agents_consulted": 2,
+            "average_confidence": 0.5,
+            "recommendations": []
+          },
+          "uba_optimization": {
+            "alternatives_considered": 3,
+            "selected_alternative": "conservative_approach",
+            "expected_utility": 0.8450495049504951
+          }
+        },
+        "final_answer": "I'm processing your input... I've created a plan to Process request: I'm having trouble with my project deadline. Any advice?. The next step is: Analyze requirements for: process request: i'm having trouble with my project deadline. any advice?. I've optimized the approach using conservative_approach.",
+        "system_confidence": 0.7062623762376238,
+        "next_steps": {
+          "action_id": "a82f54aa-a663-4991-8a84-a6d504317616_action_0",
+          "description": "Analyze requirements for: process request: i'm having trouble with my project deadline. any advice?",
+          "type": "analysis",
+          "parameters": {
+            "focus": "requirements"
+          },
+          "estimated_duration": 15.0
+        },
+        "learning_applied": true,
+        "optimization_applied": true,
+        "processing_time": 0.001210927963256836
+      }
+    },
+    {
+      "test_name": "Travel Planning",
+      "input": "I'm planning a trip to Japan. What should I know?",
+      "success": true,
+      "response_time": 0.001310110092163086,
+      "response": {
+        "original_input": "I'm planning a trip to Japan. What should I know?",
+        "request_id": "req_1755734620_0",
+        "success": true,
+        "processing_stages": {
+          "sra": {
+            "classification": "question",
+            "tags": [
+              "what"
+            ],
+            "quick_response": "I'm analyzing your question and routing it for detailed processing..."
+          },
+          "mbr": {
+            "confidence": 0.7999999999999999,
+            "context_applied": 2,
+            "decision": "retrieve_and_synthesize"
+          },
+          "gap": {
+            "goal_created": "Retrieve and provide information: I'm planning a trip to Japan. What should I know?",
+            "plan_steps": 4,
+            "estimated_completion": 31.2
+          },
+          "la_monitoring": {
+            "agents_consulted": 2,
+            "average_confidence": 0.5,
+            "recommendations": []
+          },
+          "uba_optimization": {
+            "alternatives_considered": 3,
+            "selected_alternative": "conservative_approach",
+            "expected_utility": 0.8450495049504951
+          }
+        },
+        "final_answer": "I'm analyzing your question and routing it for detailed processing... Based on contextual analysis, I'll retrieve_and_synthesize. I've created a plan to Retrieve and provide information: I'm planning a trip to Japan. What should I know?. The next step is: Identify information sources for: retrieve and provide information: i'm planning a trip to japan. what should i know?. I've optimized the approach using conservative_approach.",
+        "system_confidence": 0.7462623762376237,
+        "next_steps": {
+          "action_id": "d62f77f6-0f36-491f-a94e-7b0d1663c02b_action_0",
+          "description": "Identify information sources for: retrieve and provide information: i'm planning a trip to japan. what should i know?",
+          "type": "research",
+          "parameters": {
+            "sources": [
+              "database",
+              "web",
+              "archive"
+            ]
+          },
+          "estimated_duration": 10.0
+        },
+        "learning_applied": true,
+        "optimization_applied": true,
+        "processing_time": 0.0012221336364746094
+      }
+    },
+    {
+      "test_name": "Emotional Support",
+      "input": "I'm feeling really down today. Nothing seems to be going right.",
+      "success": true,
+      "response_time": 0.001371145248413086,
+      "response": {
+        "original_input": "I'm feeling really down today. Nothing seems to be going right.",
+        "request_id": "req_1755734620_0",
+        "success": true,
+        "processing_stages": {
+          "sra": {
+            "classification": "general",
+            "tags": [],
+            "quick_response": "I'm processing your input..."
+          },
+          "mbr": {
+            "confidence": 0.6,
+            "context_applied": 0,
+            "decision": "process_and_route"
+          },
+          "gap": {
+            "goal_created": "Process request: I'm feeling really down today. Nothing seems to be going right.",
+            "plan_steps": 4,
+            "estimated_completion": 51.6
+          },
+          "la_monitoring": {
+            "agents_consulted": 2,
+            "average_confidence": 0.5,
+            "recommendations": []
+          },
+          "uba_optimization": {
+            "alternatives_considered": 3,
+            "selected_alternative": "conservative_approach",
+            "expected_utility": 0.8450495049504951
+          }
+        },
+        "final_answer": "I'm processing your input... I've created a plan to Process request: I'm feeling really down today. Nothing seems to be going right.. The next step is: Analyze requirements for: process request: i'm feeling really down today. nothing seems to be going right.. I've optimized the approach using conservative_approach.",
+        "system_confidence": 0.7062623762376238,
+        "next_steps": {
+          "action_id": "5317b64d-65a0-4b3c-b516-b5f1a83b93e7_action_0",
+          "description": "Analyze requirements for: process request: i'm feeling really down today. nothing seems to be going right.",
+          "type": "analysis",
+          "parameters": {
+            "focus": "requirements"
+          },
+          "estimated_duration": 15.0
+        },
+        "learning_applied": true,
+        "optimization_applied": true,
+        "processing_time": 0.0012791156768798828
+      }
+    },
+    {
+      "test_name": "Technical Question",
+      "input": "Can you explain how machine learning works in simple terms?",
+      "success": true,
+      "response_time": 0.0027604103088378906,
+      "response": {
+        "original_input": "Can you explain how machine learning works in simple terms?",
+        "request_id": "req_1755734620_0",
+        "success": true,
+        "processing_stages": {
+          "sra": {
+            "classification": "question",
+            "tags": [
+              "how"
+            ],
+            "quick_response": "I'm analyzing your question and routing it for detailed processing..."
+          },
+          "mbr": {
+            "confidence": 0.7999999999999999,
+            "context_applied": 2,
+            "decision": "retrieve_and_synthesize"
+          },
+          "gap": {
+            "goal_created": "Retrieve and provide information: Can you explain how machine learning works in simple terms?",
+            "plan_steps": 4,
+            "estimated_completion": 31.2
+          },
+          "la_monitoring": {
+            "agents_consulted": 2,
+            "average_confidence": 0.5,
+            "recommendations": []
+          },
+          "uba_optimization": {
+            "alternatives_considered": 3,
+            "selected_alternative": "conservative_approach",
+            "expected_utility": 0.8450495049504951
+          }
+        },
+        "final_answer": "I'm analyzing your question and routing it for detailed processing... Based on contextual analysis, I'll retrieve_and_synthesize. I've created a plan to Retrieve and provide information: Can you explain how machine learning works in simple terms?. The next step is: Identify information sources for: retrieve and provide information: can you explain how machine learning works in simple terms?. I've optimized the approach using conservative_approach.",
+        "system_confidence": 0.7462623762376237,
+        "next_steps": {
+          "action_id": "b0010db9-1b7a-4f52-9aaa-91a4788ff1a3_action_0",
+          "description": "Identify information sources for: retrieve and provide information: can you explain how machine learning works in simple terms?",
+          "type": "research",
+          "parameters": {
+            "sources": [
+              "database",
+              "web",
+              "archive"
+            ]
+          },
+          "estimated_duration": 10.0
+        },
+        "learning_applied": true,
+        "optimization_applied": true,
+        "processing_time": 0.002676725387573242
+      }
+    }
+  ],
+  "overall_status": "PASS"
+}

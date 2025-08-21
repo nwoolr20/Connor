@@ -1,0 +1,132 @@
+{
+  "timestamp": "2025-08-20 23:27:52",
+  "total_duration": 1.711226463317871,
+  "system_info": {
+    "cpu_count": 4,
+    "memory_total_gb": 15.620681762695312,
+    "platform": "linux"
+  },
+  "aggregate_metrics": {
+    "average_throughput": 2257.68089666392,
+    "average_memory_usage_mb": 130.009375,
+    "average_cpu_usage": 0.0,
+    "average_success_rate": 0.7648307692307692
+  },
+  "benchmark_results": [
+    {
+      "test_name": "Agent Processing",
+      "duration": 0.10724425315856934,
+      "throughput": 606.0930827117816,
+      "memory_usage": 157.09765625,
+      "cpu_usage": 0.0,
+      "success_rate": 0.9230769230769231,
+      "details": {
+        "total_tests": 65,
+        "successful_tests": 60,
+        "agents_tested": 13,
+        "inputs_per_agent": 5
+      }
+    },
+    {
+      "test_name": "System Scaling",
+      "duration": 0.012689352035522461,
+      "throughput": 6338.99553579487,
+      "memory_usage": 157.09765625,
+      "cpu_usage": 0.0,
+      "success_rate": 0.978,
+      "details": {
+        "load_levels_tested": [
+          1,
+          5,
+          10,
+          20,
+          50
+        ],
+        "scaling_results": [
+          {
+            "load_level": 1,
+            "duration": 0.0003066062927246094,
+            "throughput": 3261.51166407465,
+            "success_rate": 1.0
+          },
+          {
+            "load_level": 5,
+            "duration": 0.0006766319274902344,
+            "throughput": 7389.54193093728,
+            "success_rate": 1.0
+          },
+          {
+            "load_level": 10,
+            "duration": 0.0014729499816894531,
+            "throughput": 6789.096795079314,
+            "success_rate": 1.0
+          },
+          {
+            "load_level": 20,
+            "duration": 0.0025942325592041016,
+            "throughput": 7709.4090616671265,
+            "success_rate": 0.95
+          },
+          {
+            "load_level": 50,
+            "duration": 0.0076389312744140625,
+            "throughput": 6545.41822721598,
+            "success_rate": 0.94
+          }
+        ],
+        "max_load": 50,
+        "performance_degradation": 0.0
+      }
+    },
+    {
+      "test_name": "Memory System",
+      "duration": 0,
+      "throughput": 0,
+      "memory_usage": 0,
+      "cpu_usage": 0,
+      "success_rate": 0,
+      "details": {
+        "error": "Can't instantiate abstract class MemStore without an implementation for abstract methods '__init__', 'add', 'add_task_memory', 'delete', 'delete_task_memory', 'get', 'get_task_memory', 'query', 'query_task_memory', 'update', 'update_task_memory'"
+      }
+    },
+    {
+      "test_name": "Agent Communication",
+      "duration": 0.10065340995788574,
+      "throughput": 993.508317719597,
+      "memory_usage": 167.1875,
+      "cpu_usage": 0.0,
+      "success_rate": 1.0,
+      "details": {
+        "messages_sent": 100,
+        "messages_processed": 100,
+        "agents_involved": 13,
+        "average_latency": 0.0010065340995788574
+      }
+    },
+    {
+      "test_name": "Concurrent Agents",
+      "duration": 0.1190338134765625,
+      "throughput": 1092.1266504294322,
+      "memory_usage": 168.6640625,
+      "cpu_usage": 0.0,
+      "success_rate": 0.9230769230769231,
+      "details": {
+        "total_tasks": 130,
+        "successful_tasks": 120,
+        "agents_tested": 13,
+        "tasks_per_agent": 10,
+        "concurrency_level": 13
+      }
+    }
+  ],
+  "performance_grade": "A",
+  "recommendations": [
+    {
+      "category": "Reliability",
+      "priority": "HIGH",
+      "issue": "Low success rate: 76.5%",
+      "recommendation": "Improve error handling and input validation",
+      "target": "Achieve >95% success rate"
+    }
+  ]
+}

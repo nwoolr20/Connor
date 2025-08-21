@@ -1,0 +1,605 @@
+{
+  "timestamp": "2025-08-20 23:59:20",
+  "total_duration": 3.572984457015991,
+  "total_tests": 39,
+  "health_score": 97.43589743589743,
+  "summary_by_status": {
+    "PASS": 38,
+    "FAIL": 1
+  },
+  "summary_by_component": {
+    "Core Modules": {
+      "PASS": 8,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Connor System": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent Types": {
+      "PASS": 12,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Memory System": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "CLI Interfaces": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Configuration": {
+      "PASS": 4,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Dependencies": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "File Structure": {
+      "PASS": 5,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Performance": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    }
+  },
+  "recommendations": [],
+  "detailed_results": [
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.base",
+      "status": "PASS",
+      "message": "Successfully imported with 5 classes",
+      "details": {
+        "classes": [
+          "AgentConfig",
+          "AgentMessage",
+          "AgentPhase",
+          "AgentType",
+          "BaseConnorAgent"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py"
+      },
+      "duration": 3.060899019241333,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.connor_system",
+      "status": "PASS",
+      "message": "Successfully imported with 3 classes",
+      "details": {
+        "classes": [
+          "ConnorSystem",
+          "ProcessingRequest",
+          "SystemMetrics"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/connor_system.py"
+      },
+      "duration": 3.814697265625e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.sra",
+      "status": "PASS",
+      "message": "Successfully imported with 1 classes",
+      "details": {
+        "classes": [
+          "SimpleReflexAgent"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/sra.py"
+      },
+      "duration": 2.86102294921875e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.la",
+      "status": "PASS",
+      "message": "Successfully imported with 4 classes",
+      "details": {
+        "classes": [
+          "FamilyMember",
+          "LearningAgent",
+          "LearningExperience",
+          "Pattern"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/la.py"
+      },
+      "duration": 2.6226043701171875e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.uba",
+      "status": "PASS",
+      "message": "Successfully imported with 5 classes",
+      "details": {
+        "classes": [
+          "Alternative",
+          "Decision",
+          "UtilityBasedAgent",
+          "UtilityFactor",
+          "UtilityFunction"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/uba.py"
+      },
+      "duration": 2.86102294921875e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.aa",
+      "status": "PASS",
+      "message": "Successfully imported with 4 classes",
+      "details": {
+        "classes": [
+          "ApprenticeAgent",
+          "CacheEntry",
+          "FamilyArchive",
+          "InformationRequest"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/aa.py"
+      },
+      "duration": 2.1457672119140625e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.gap",
+      "status": "PASS",
+      "message": "Successfully imported with 6 classes",
+      "details": {
+        "classes": [
+          "Action",
+          "Goal",
+          "GoalBasedAgentPlanner",
+          "GoalStatus",
+          "Plan",
+          "PlanStatus"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/gap.py"
+      },
+      "duration": 2.384185791015625e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.mbr",
+      "status": "PASS",
+      "message": "Successfully imported with 2 classes",
+      "details": {
+        "classes": [
+          "ModelBasedReflexAgent",
+          "WorldModel"
+        ],
+        "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/mbr.py"
+      },
+      "duration": 2.86102294921875e-06,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent System",
+      "test_name": "AgentConfig Creation",
+      "status": "FAIL",
+      "message": "Failed to create agent config: AgentConfig.__init__() got an unexpected keyword argument 'name'",
+      "details": {
+        "error": "AgentConfig.__init__() got an unexpected keyword argument 'name'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Connor System",
+      "test_name": "System Initialization",
+      "status": "PASS",
+      "message": "Successfully initialized Connor system",
+      "details": {
+        "init_time": 0.0014395713806152344
+      },
+      "duration": 0.0014395713806152344,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Connor System",
+      "test_name": "System Status",
+      "status": "PASS",
+      "message": "Successfully retrieved system status",
+      "details": {
+        "status": {
+          "system_id": "6211bc83-5a85-4f95-8463-65cc1f31641d",
+          "total_agents": 13,
+          "agent_distribution": {
+            "Simple Reflex Agent": 3,
+            "Model-Based Reflex Agent": 2,
+            "Goal-Based Agent-Planner": 2,
+            "Learning Agent": 4,
+            "Utility-Based Agent": 1,
+            "Apprentice Agent": 1
+          },
+          "active_requests": 0,
+          "completed_requests": 0,
+          "families": 1,
+          "system_metrics": {
+            "total_processed": 0,
+            "success_rate": 1.0,
+            "avg_processing_time": 0.0
+          },
+          "family_details": {
+            "family_0": {
+              "parent": "la_parent_0",
+              "children_count": 3,
+              "apprentices_count": 1
+            }
+          }
+        }
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "SRA Agent Import",
+      "status": "PASS",
+      "message": "Found 1 agent classes",
+      "details": {
+        "classes": [
+          "SimpleReflexAgent"
+        ]
+      },
+      "duration": 2.9325485229492188e-05,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "SRA Class Structure",
+      "status": "PASS",
+      "message": "All required methods present",
+      "details": {
+        "class_name": "SimpleReflexAgent"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "LA Agent Import",
+      "status": "PASS",
+      "message": "Found 1 agent classes",
+      "details": {
+        "classes": [
+          "LearningAgent"
+        ]
+      },
+      "duration": 2.9802322387695312e-05,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "LA Class Structure",
+      "status": "PASS",
+      "message": "All required methods present",
+      "details": {
+        "class_name": "LearningAgent"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "UBA Agent Import",
+      "status": "PASS",
+      "message": "Found 1 agent classes",
+      "details": {
+        "classes": [
+          "UtilityBasedAgent"
+        ]
+      },
+      "duration": 6.747245788574219e-05,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "UBA Class Structure",
+      "status": "PASS",
+      "message": "All required methods present",
+      "details": {
+        "class_name": "UtilityBasedAgent"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "AA Agent Import",
+      "status": "PASS",
+      "message": "Found 1 agent classes",
+      "details": {
+        "classes": [
+          "ApprenticeAgent"
+        ]
+      },
+      "duration": 2.384185791015625e-05,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "AA Class Structure",
+      "status": "PASS",
+      "message": "All required methods present",
+      "details": {
+        "class_name": "ApprenticeAgent"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "GAP Agent Import",
+      "status": "PASS",
+      "message": "Found 1 agent classes",
+      "details": {
+        "classes": [
+          "GoalBasedAgentPlanner"
+        ]
+      },
+      "duration": 4.5299530029296875e-05,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "GAP Class Structure",
+      "status": "PASS",
+      "message": "All required methods present",
+      "details": {
+        "class_name": "GoalBasedAgentPlanner"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "MBR Agent Import",
+      "status": "PASS",
+      "message": "Found 1 agent classes",
+      "details": {
+        "classes": [
+          "ModelBasedReflexAgent"
+        ]
+      },
+      "duration": 2.1457672119140625e-05,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "MBR Class Structure",
+      "status": "PASS",
+      "message": "All required methods present",
+      "details": {
+        "class_name": "ModelBasedReflexAgent"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:19"
+    },
+    {
+      "component": "Memory System",
+      "test_name": "Memory Module Import",
+      "status": "PASS",
+      "message": "Successfully imported memory modules",
+      "details": {
+        "modules": [
+          "MemStore",
+          "ChromaMemStore"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "connor_cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 9382
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 33107
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "demo_connor.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 14200
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "connor_config.json Validation",
+      "status": "PASS",
+      "message": "Valid JSON configuration",
+      "details": {
+        "keys": [
+          "system",
+          "agents",
+          "learning",
+          "monitoring",
+          "automation",
+          "security",
+          "integration",
+          "logging",
+          "testing"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Configuration",
+      "test_name": ".env Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 533
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "Makefile Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 10148
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "pyproject.toml Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 996
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "Poetry Lock File",
+      "status": "PASS",
+      "message": "Poetry lock file exists",
+      "details": {
+        "file_size": 429612
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "PyProject Configuration",
+      "status": "PASS",
+      "message": "PyProject.toml exists",
+      "details": {
+        "file_size": 1827
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/connor",
+      "status": "PASS",
+      "message": "Directory exists with 19 items",
+      "details": {
+        "file_count": 19
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/memory",
+      "status": "PASS",
+      "message": "Directory exists with 8 items",
+      "details": {
+        "file_count": 8
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists with 4 items",
+      "details": {
+        "file_count": 4
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory docs",
+      "status": "PASS",
+      "message": "Directory exists with 105 items",
+      "details": {
+        "file_count": 105
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Package Initialization",
+      "status": "PASS",
+      "message": "All Python packages properly initialized",
+      "details": {},
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    },
+    {
+      "component": "Performance",
+      "test_name": "Import Benchmarks",
+      "status": "PASS",
+      "message": "Good import performance: 0.000s average",
+      "details": {
+        "import_times": {
+          "forge.connor.base": 6.198883056640625e-06,
+          "forge.connor.connor_system": 2.6226043701171875e-06,
+          "forge.connor.sra": 1.6689300537109375e-06,
+          "forge.connor.la": 1.9073486328125e-06
+        },
+        "average": 3.0994415283203125e-06
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-20 23:59:20"
+    }
+  ]
+}
