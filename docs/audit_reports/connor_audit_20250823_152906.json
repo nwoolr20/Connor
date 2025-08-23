@@ -1,0 +1,477 @@
+{
+  "timestamp": "2025-08-23 15:29:06",
+  "total_duration": 0.15713262557983398,
+  "total_tests": 32,
+  "health_score": 40.625,
+  "summary_by_status": {
+    "FAIL": 17,
+    "PASS": 13,
+    "WARNING": 2
+  },
+  "summary_by_component": {
+    "Core Modules": {
+      "PASS": 0,
+      "FAIL": 8,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Connor System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent Types": {
+      "PASS": 0,
+      "FAIL": 6,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Memory System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "CLI Interfaces": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Configuration": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Dependencies": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "File Structure": {
+      "PASS": 4,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Performance": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Dependencies",
+      "issue": "Core module import failures",
+      "recommendation": "Install missing dependencies using poetry install or pip install",
+      "action": "Run: cd autogpts/forge && poetry install"
+    },
+    {
+      "priority": "HIGH",
+      "category": "Architecture",
+      "issue": "Agent type failures",
+      "recommendation": "Review agent implementations for missing methods or dependencies",
+      "action": "Check agent class implementations and inheritance structure"
+    },
+    {
+      "priority": "LOW",
+      "category": "Maintenance",
+      "issue": "Components with warnings: Configuration, File Structure",
+      "recommendation": "Address warning conditions to improve system reliability",
+      "action": "Review detailed audit results for specific warning fixes"
+    }
+  ],
+  "detailed_results": [
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.base",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.00334930419921875,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.connor_system",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005879402160644531,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.sra",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005524158477783203,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.la",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005257129669189453,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.uba",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005199909210205078,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.aa",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005176067352294922,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.gap",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005283355712890625,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.mbr",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0005171298980712891,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent System",
+      "test_name": "AgentConfig Creation",
+      "status": "FAIL",
+      "message": "Failed to create agent config: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Connor System",
+      "test_name": "System Initialization",
+      "status": "FAIL",
+      "message": "Failed to initialize Connor system: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 178, in audit_connor_system\n    from forge.connor.connor_system import ConnorSystem\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 5, in <module>\n    from ..llm import chat_completion_request, create_embedding_request, transcribe_audio\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/llm.py\", line 3, in <module>\n    from litellm import AuthenticationError, InvalidRequestError, ModelResponse, acompletion\nModuleNotFoundError: No module named 'litellm'\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "SRA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "LA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "UBA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "AA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "GAP Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "MBR Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'litellm'",
+      "details": {
+        "error": "No module named 'litellm'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Memory System",
+      "test_name": "Memory Module Import",
+      "status": "FAIL",
+      "message": "Failed to import memory modules: No module named 'chromadb'",
+      "details": {
+        "error": "No module named 'chromadb'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "connor_cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 9505
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 34129
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "demo_connor.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 14200
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "connor_config.json Validation",
+      "status": "PASS",
+      "message": "Valid JSON configuration",
+      "details": {
+        "keys": [
+          "system",
+          "agents",
+          "learning",
+          "monitoring",
+          "automation",
+          "security",
+          "integration",
+          "logging",
+          "testing"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Configuration",
+      "test_name": ".env Existence",
+      "status": "WARNING",
+      "message": "Configuration file not found",
+      "details": {
+        "expected_path": "/home/runner/work/Connor/Connor/.env"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "Makefile Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 10148
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "pyproject.toml Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 1288
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "Poetry Lock File",
+      "status": "PASS",
+      "message": "Poetry lock file exists",
+      "details": {
+        "file_size": 429612
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "PyProject Configuration",
+      "status": "PASS",
+      "message": "PyProject.toml exists",
+      "details": {
+        "file_size": 1827
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/connor",
+      "status": "PASS",
+      "message": "Directory exists with 12 items",
+      "details": {
+        "file_count": 12
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/memory",
+      "status": "PASS",
+      "message": "Directory exists with 7 items",
+      "details": {
+        "file_count": 7
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists with 4 items",
+      "details": {
+        "file_count": 4
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory docs",
+      "status": "PASS",
+      "message": "Directory exists with 111 items",
+      "details": {
+        "file_count": 111
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Package Initialization",
+      "status": "WARNING",
+      "message": "Missing __init__.py in 1 directories",
+      "details": {
+        "missing_inits": [
+          "/home/runner/work/Connor/Connor/tests"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    },
+    {
+      "component": "Performance",
+      "test_name": "Import Benchmarks",
+      "status": "PASS",
+      "message": "Good import performance: 0.000s average",
+      "details": {
+        "import_times": {
+          "forge.connor.base": -1,
+          "forge.connor.connor_system": -1,
+          "forge.connor.sra": -1,
+          "forge.connor.la": -1
+        },
+        "average": 0
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:29:06"
+    }
+  ]
+}

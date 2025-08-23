@@ -1,6 +1,7 @@
 from typing import Optional
 
 from autogpt.agents.agent import Agent, AgentConfiguration, AgentSettings
+from autogpt.agents.connor_agent import ConnorAgent
 from autogpt.commands import COMMAND_CATEGORIES
 from autogpt.config import AIDirectives, AIProfile, Config
 from autogpt.core.resource.model_providers import ChatModelProvider
@@ -86,7 +87,8 @@ def _configure_agent(
 
     # TODO: configure memory
 
-    return Agent(
+    # Create ConnorAgent instead of regular Agent for multi-agent intelligence
+    return ConnorAgent(
         settings=agent_state,
         llm_provider=llm_provider,
         command_registry=command_registry,

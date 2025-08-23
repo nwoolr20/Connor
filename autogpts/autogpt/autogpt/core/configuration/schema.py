@@ -4,8 +4,19 @@ import typing
 from typing import Any, Callable, Generic, Optional, Type, TypeVar, get_args
 
 from pydantic import BaseModel, Field, ValidationError
-from pydantic.fields import ModelField, Undefined, UndefinedType
-from pydantic.main import ModelMetaclass
+
+try:
+    # Pydantic v1
+    from pydantic.fields import ModelField, Undefined, UndefinedType
+    from pydantic.main import ModelMetaclass
+    PYDANTIC_V2 = False
+except ImportError:
+    # Pydantic v2 compatibility
+    from pydantic.fields import FieldInfo as ModelField
+    from pydantic._internal._fields import PydanticUndefined as Undefined
+    UndefinedType = type(Undefined)
+    from pydantic._internal._model_construction import ModelMetaclass
+    PYDANTIC_V2 = True
 
 T = TypeVar("T")
 M = TypeVar("M", bound=BaseModel)

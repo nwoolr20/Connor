@@ -17,26 +17,31 @@ connor-cli = "connor_cli:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
+# Core Dependencies
 click = "^8.0.0"
 fastapi = "^0.116.0"
-litellm = "^1.75.0"
-chromadb = "^1.0.0"
-python-dotenv = "^1.1.0"
-openai = "^1.100.0"
-tenacity = "^9.1.0"
-sqlalchemy = "^2.0.0"
-aiohttp = "^3.12.0"
-colorlog = "^6.9.0"
-python-multipart = "^0.0.20"
-toml = "^0.10.2"
-jinja2 = "^3.1.2"
 uvicorn = "^0.35.0"
-duckduckgo-search = "^8.1.0"
-selenium = "^4.35.0"
-bs4 = "^0.0.2"
-webdriver-manager = "^4.0.2"
-google-cloud-storage = "^3.3.0"
+python-multipart = "^0.0.20"
+python-dotenv = "^1.1.0"
 pydantic = "^2.11.0"
+tenacity = "^9.1.0"
+aiohttp = "^3.12.0"
+# AI/ML Dependencies
+litellm = "^1.75.0"
+openai = "^1.100.0"
+chromadb = "^1.0.0"
+# Data Dependencies
+sqlalchemy = "^2.0.0"
+# Optional Dependencies (for specific features)
+colorlog = { version = "^6.9.0", optional = true }
+toml = { version = "^0.10.2", optional = true }
+jinja2 = { version = "^3.1.2", optional = true }
+
+[tool.poetry.extras]
+logging = ["colorlog"]
+config = ["toml"]
+templating = ["jinja2"]
+full = ["colorlog", "toml", "jinja2"]
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.0"

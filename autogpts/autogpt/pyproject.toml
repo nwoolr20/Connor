@@ -65,6 +65,11 @@ tenacity = "^8.2.2"
 tiktoken = "^0.5.0"
 webdriver-manager = "*"
 
+# Connor Multi-Agent System Dependencies
+litellm = "^1.75.0"
+chromadb = "^1.0.0"
+sqlalchemy = "^2.0.0"
+
 # OpenAI and Generic plugins import
 openapi-python-client = "^0.14.0"
 

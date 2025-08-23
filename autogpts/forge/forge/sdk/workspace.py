@@ -3,7 +3,11 @@ import os
 import typing
 from pathlib import Path
 
-from google.cloud import storage
+try:
+    from google.cloud import storage
+except ImportError:
+    # Google Cloud Storage is optional - only needed for GCS workspace
+    storage = None
 
 
 class Workspace(abc.ABC):

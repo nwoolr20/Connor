@@ -1,0 +1,476 @@
+{
+  "timestamp": "2025-08-23 15:33:25",
+  "total_duration": 2.536860704421997,
+  "total_tests": 32,
+  "health_score": 46.875,
+  "summary_by_status": {
+    "FAIL": 16,
+    "PASS": 15,
+    "WARNING": 1
+  },
+  "summary_by_component": {
+    "Core Modules": {
+      "PASS": 0,
+      "FAIL": 8,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Connor System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent Types": {
+      "PASS": 0,
+      "FAIL": 6,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Memory System": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "CLI Interfaces": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Configuration": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Dependencies": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "File Structure": {
+      "PASS": 5,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Performance": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Dependencies",
+      "issue": "Core module import failures",
+      "recommendation": "Install missing dependencies using poetry install or pip install",
+      "action": "Run: cd autogpts/forge && poetry install"
+    },
+    {
+      "priority": "HIGH",
+      "category": "Architecture",
+      "issue": "Agent type failures",
+      "recommendation": "Review agent implementations for missing methods or dependencies",
+      "action": "Check agent class implementations and inheritance structure"
+    },
+    {
+      "priority": "LOW",
+      "category": "Maintenance",
+      "issue": "Components with warnings: Configuration",
+      "recommendation": "Address warning conditions to improve system reliability",
+      "action": "Review detailed audit results for specific warning fixes"
+    }
+  ],
+  "detailed_results": [
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.base",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 1.9783682823181152,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.connor_system",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.006706714630126953,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.sra",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.006514072418212891,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.la",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.00658106803894043,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.uba",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.0066645145416259766,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.aa",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.0066375732421875,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.gap",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.006739616394042969,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.mbr",
+      "status": "FAIL",
+      "message": "Import failed: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.007919788360595703,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent System",
+      "test_name": "AgentConfig Creation",
+      "status": "FAIL",
+      "message": "Failed to create agent config: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Connor System",
+      "test_name": "System Initialization",
+      "status": "FAIL",
+      "message": "Failed to initialize Connor system: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 178, in audit_connor_system\n    from forge.connor.connor_system import ConnorSystem\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 26, in <module>\n    from .routes.agent_protocol import base_router\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/routes/agent_protocol.py\", line 538, in <module>\n    @base_router.post(\n     ^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 995, in decorator\n    self.add_api_route(\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 934, in add_api_route\n    route = route_class(\n            ^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/routing.py\", line 555, in __init__\n    self.dependant = get_dependant(path=self.path_format, call=self.endpoint)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 285, in get_dependant\n    param_details = analyze_param(\n                    ^^^^^^^^^^^^^^\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 482, in analyze_param\n    ensure_multipart_is_installed()\n  File \"/home/runner/.local/lib/python3.12/site-packages/fastapi/dependencies/utils.py\", line 115, in ensure_multipart_is_installed\n    raise RuntimeError(multipart_not_installed_error) from None\nRuntimeError: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "SRA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "LA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "UBA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "AA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "GAP Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "MBR Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n",
+      "details": {
+        "error": "Form data requires \"python-multipart\" to be installed. \nYou can install \"python-multipart\" with: \n\npip install python-multipart\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Memory System",
+      "test_name": "Memory Module Import",
+      "status": "PASS",
+      "message": "Successfully imported memory modules",
+      "details": {
+        "modules": [
+          "MemStore",
+          "ChromaMemStore"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "connor_cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 9505
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 34129
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "demo_connor.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 14200
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "connor_config.json Validation",
+      "status": "PASS",
+      "message": "Valid JSON configuration",
+      "details": {
+        "keys": [
+          "system",
+          "agents",
+          "learning",
+          "monitoring",
+          "automation",
+          "security",
+          "integration",
+          "logging",
+          "testing"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Configuration",
+      "test_name": ".env Existence",
+      "status": "WARNING",
+      "message": "Configuration file not found",
+      "details": {
+        "expected_path": "/home/runner/work/Connor/Connor/.env"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "Makefile Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 10148
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "pyproject.toml Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 1288
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "Poetry Lock File",
+      "status": "PASS",
+      "message": "Poetry lock file exists",
+      "details": {
+        "file_size": 429612
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "PyProject Configuration",
+      "status": "PASS",
+      "message": "PyProject.toml exists",
+      "details": {
+        "file_size": 1827
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/connor",
+      "status": "PASS",
+      "message": "Directory exists with 12 items",
+      "details": {
+        "file_count": 12
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/memory",
+      "status": "PASS",
+      "message": "Directory exists with 8 items",
+      "details": {
+        "file_count": 8
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists with 4 items",
+      "details": {
+        "file_count": 4
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory docs",
+      "status": "PASS",
+      "message": "Directory exists with 82 items",
+      "details": {
+        "file_count": 82
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Package Initialization",
+      "status": "PASS",
+      "message": "All Python packages properly initialized",
+      "details": {},
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    },
+    {
+      "component": "Performance",
+      "test_name": "Import Benchmarks",
+      "status": "PASS",
+      "message": "Good import performance: 0.000s average",
+      "details": {
+        "import_times": {
+          "forge.connor.base": -1,
+          "forge.connor.connor_system": -1,
+          "forge.connor.sra": -1,
+          "forge.connor.la": -1
+        },
+        "average": 0
+      },
+      "duration": 0.0,
+      "timestamp": "2025-08-23 15:33:25"
+    }
+  ]
+}

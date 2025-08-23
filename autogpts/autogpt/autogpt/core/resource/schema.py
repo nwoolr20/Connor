@@ -1,7 +1,13 @@
 import abc
 import enum
 
-from pydantic import BaseModel, SecretBytes, SecretField, SecretStr
+from pydantic import BaseModel, SecretBytes, SecretStr
+try:
+    # Pydantic v1
+    from pydantic import SecretField
+except ImportError:
+    # Pydantic v2 - SecretField doesn't exist
+    from pydantic import Field as SecretField
 
 from autogpt.core.configuration import (
     SystemConfiguration,
