@@ -14,6 +14,7 @@ packages = [
 [tool.poetry.scripts]
 connor = "cli:main"
 connor-cli = "connor_cli:main"
+launch-connor = "launch_connor:main"
 
 [tool.poetry.dependencies]
 python = "^3.10"
