@@ -1096,8 +1096,9 @@ class ConnorSystemAuditor:
             # Test agent processing chain
             if len(agents) >= 3:
                 # Simulate processing chain: SRA -> MBR -> GAP -> LA -> UBA -> AA
+                from forge.connor.base import AgentType
                 agent_chain = []
-                agent_types = ['SRA', 'MBR', 'GAP', 'LA', 'UBA', 'AA']
+                agent_types = [AgentType.SRA, AgentType.MBR, AgentType.GAP, AgentType.LA, AgentType.UBA, AgentType.AA]
                 
                 for agent_type in agent_types:
                     matching_agents = [a for a in agents if a.agent_type == agent_type]
