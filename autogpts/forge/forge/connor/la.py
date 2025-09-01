@@ -83,6 +83,13 @@ class LearningAgent(BaseConnorAgent):
             "adaptability": 0.5
         }
         
+        # Initialize memory store for enhanced memory capabilities
+        try:
+            from forge.memory import ChromaMemStore
+            self.memory_store = ChromaMemStore("./chroma_db")
+        except ImportError:
+            self.memory_store = None
+        
         # Initialize based on phase
         self._initialize_by_phase()
         

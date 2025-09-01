@@ -1,0 +1,747 @@
+{
+  "timestamp": "2025-09-01 02:37:58",
+  "total_duration": 2.8751399517059326,
+  "total_tests": 47,
+  "health_score": 48.93617021276596,
+  "summary_by_status": {
+    "FAIL": 21,
+    "PASS": 23,
+    "WARNING": 3
+  },
+  "summary_by_component": {
+    "Core Modules": {
+      "PASS": 0,
+      "FAIL": 8,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Connor System": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Agent Types": {
+      "PASS": 0,
+      "FAIL": 6,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Memory System": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "CLI Interfaces": {
+      "PASS": 3,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Configuration": {
+      "PASS": 4,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Dependencies": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "File Structure": {
+      "PASS": 5,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Communication Bus": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Lifecycle Daemons": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Memory Index": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Daisy-Chained Logic": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Edge Cases & Fallbacks": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Automation Hooks": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Orphaned Files": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "Inter-Module Relationships": {
+      "PASS": 2,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Dependency Trees": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 1,
+      "SKIP": 0
+    },
+    "System Synchronization": {
+      "PASS": 0,
+      "FAIL": 1,
+      "WARNING": 0,
+      "SKIP": 0
+    },
+    "Performance": {
+      "PASS": 1,
+      "FAIL": 0,
+      "WARNING": 0,
+      "SKIP": 0
+    }
+  },
+  "recommendations": [
+    {
+      "priority": "HIGH",
+      "category": "Dependencies",
+      "issue": "Core module import failures",
+      "recommendation": "Install missing dependencies using poetry install or pip install",
+      "action": "Run: cd autogpts/forge && poetry install"
+    },
+    {
+      "priority": "HIGH",
+      "category": "Architecture",
+      "issue": "Agent type failures",
+      "recommendation": "Review agent implementations for missing methods or dependencies",
+      "action": "Check agent class implementations and inheritance structure"
+    },
+    {
+      "priority": "LOW",
+      "category": "Maintenance",
+      "issue": "Components with warnings: Memory Index, Dependency Trees, Orphaned Files",
+      "recommendation": "Address warning conditions to improve system reliability",
+      "action": "Review detailed audit results for specific warning fixes"
+    }
+  ],
+  "detailed_results": [
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.base",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 1.7825942039489746,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.connor_system",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0008208751678466797,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.sra",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0007774829864501953,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.la",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0007536411285400391,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.uba",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0007171630859375,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.aa",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0007009506225585938,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.gap",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0007174015045166016,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Core Modules",
+      "test_name": "Import forge.connor.mbr",
+      "status": "FAIL",
+      "message": "Import failed: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 113, in audit_core_imports\n    module = importlib.import_module(module_name)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/lib/python3.12/importlib/__init__.py\", line 90, in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1310, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"<frozen importlib._bootstrap>\", line 1387, in _gcd_import\n  File \"<frozen importlib._bootstrap>\", line 1360, in _find_and_load\n  File \"<frozen importlib._bootstrap>\", line 1331, in _find_and_load_unlocked\n  File \"<frozen importlib._bootstrap>\", line 935, in _load_unlocked\n  File \"<frozen importlib._bootstrap_external>\", line 995, in exec_module\n  File \"<frozen importlib._bootstrap>\", line 488, in _call_with_frames_removed\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0007092952728271484,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent System",
+      "test_name": "AgentConfig Creation",
+      "status": "FAIL",
+      "message": "Failed to create agent config: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Connor System",
+      "test_name": "System Initialization",
+      "status": "FAIL",
+      "message": "Failed to initialize Connor system: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'",
+        "traceback": "Traceback (most recent call last):\n  File \"/home/runner/work/Connor/Connor/system_audit.py\", line 178, in audit_connor_system\n    from forge.connor.connor_system import ConnorSystem\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/__init__.py\", line 13, in <module>\n    from .base import BaseConnorAgent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py\", line 13, in <module>\n    from forge.sdk import ForgeLogger\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/__init__.py\", line 6, in <module>\n    from .agent import Agent\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/agent.py\", line 12, in <module>\n    from .db import AgentDB\n  File \"/home/runner/work/Connor/Connor/autogpts/forge/forge/sdk/db.py\", line 12, in <module>\n    from sqlalchemy import (\nModuleNotFoundError: No module named 'sqlalchemy'\n"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "SRA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "LA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "UBA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "AA Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "GAP Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Agent Types",
+      "test_name": "MBR Agent Import",
+      "status": "FAIL",
+      "message": "Failed to import: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Memory System",
+      "test_name": "Memory Module Import",
+      "status": "PASS",
+      "message": "Successfully imported memory modules",
+      "details": {
+        "modules": [
+          "MemStore",
+          "ChromaMemStore"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "connor_cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 9505
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "cli.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 34129
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "CLI Interfaces",
+      "test_name": "demo_connor.py Syntax",
+      "status": "PASS",
+      "message": "Valid Python syntax",
+      "details": {
+        "file_size": 14200
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "connor_config.json Validation",
+      "status": "PASS",
+      "message": "Valid JSON configuration",
+      "details": {
+        "keys": [
+          "system",
+          "agents",
+          "learning",
+          "monitoring",
+          "automation",
+          "security",
+          "integration",
+          "logging",
+          "testing"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Configuration",
+      "test_name": ".env Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 620
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "Makefile Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 10148
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Configuration",
+      "test_name": "pyproject.toml Accessibility",
+      "status": "PASS",
+      "message": "File readable",
+      "details": {
+        "file_size": 1526
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "Poetry Lock File",
+      "status": "PASS",
+      "message": "Poetry lock file exists",
+      "details": {
+        "file_size": 429612
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Dependencies",
+      "test_name": "PyProject Configuration",
+      "status": "PASS",
+      "message": "PyProject.toml exists",
+      "details": {
+        "file_size": 1827
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/connor",
+      "status": "PASS",
+      "message": "Directory exists with 12 items",
+      "details": {
+        "file_count": 12
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory autogpts/forge/forge/memory",
+      "status": "PASS",
+      "message": "Directory exists with 8 items",
+      "details": {
+        "file_count": 8
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory scripts",
+      "status": "PASS",
+      "message": "Directory exists with 4 items",
+      "details": {
+        "file_count": 4
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Directory docs",
+      "status": "PASS",
+      "message": "Directory exists with 103 items",
+      "details": {
+        "file_count": 103
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "File Structure",
+      "test_name": "Package Initialization",
+      "status": "PASS",
+      "message": "All Python packages properly initialized",
+      "details": {},
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Communication Bus",
+      "test_name": "Communication Bus Test",
+      "status": "FAIL",
+      "message": "Error testing communication bus: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Lifecycle Daemons",
+      "test_name": "Lifecycle Daemon Test",
+      "status": "FAIL",
+      "message": "Error testing lifecycle daemons: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Memory Index",
+      "test_name": "Memory Module Availability",
+      "status": "WARNING",
+      "message": "Limited memory module availability",
+      "details": {},
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:57"
+    },
+    {
+      "component": "Memory Index",
+      "test_name": "Vector Database Integration",
+      "status": "PASS",
+      "message": "ChromaDB integration working",
+      "details": {
+        "results_count": 1
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Daisy-Chained Logic",
+      "test_name": "Daisy Chain Test",
+      "status": "FAIL",
+      "message": "Error testing daisy-chained logic: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Edge Cases & Fallbacks",
+      "test_name": "Edge Case Test",
+      "status": "FAIL",
+      "message": "Error testing edge cases: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Automation Hooks",
+      "test_name": "Script Validation",
+      "status": "PASS",
+      "message": "Tested 6 automation scripts",
+      "details": {
+        "results": [
+          "connor_cli.py: Syntax OK",
+          "cli.py: Syntax OK",
+          "launch_connor.py: Syntax OK",
+          "scripts/monitor.py: Syntax OK",
+          "scripts/auto_update.py: Syntax OK",
+          "scripts/deploy.py: Syntax OK"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Automation Hooks",
+      "test_name": "Makefile Automation",
+      "status": "PASS",
+      "message": "Found 9 automation targets",
+      "details": {
+        "targets": [
+          "setup",
+          "test",
+          "deploy",
+          "health",
+          "monitor",
+          "start",
+          "stop",
+          "restart",
+          "clean"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Orphaned Files",
+      "test_name": "Potential Orphaned Files",
+      "status": "WARNING",
+      "message": "Found 162 potentially orphaned files",
+      "details": {
+        "candidates": [
+          "demo_connor.py",
+          "launch_connor.py",
+          "system_audit.py",
+          "comprehensive_benchmark.py",
+          "cli.py",
+          "dialog_training.py",
+          "scripts/monitor.py",
+          "scripts/auto_update.py",
+          "scripts/deploy.py",
+          "autogpts/autogpt/connor_autogpt_demo.py"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Orphaned Files",
+      "test_name": "Dependency Analysis",
+      "status": "PASS",
+      "message": "Found 0 declared dependencies",
+      "details": {
+        "dependency_count": 0
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Inter-Module Relationships",
+      "test_name": "Dependency Graph Analysis",
+      "status": "PASS",
+      "message": "Analyzed 8 modules with 0 relationships",
+      "details": {
+        "relationships": {
+          "forge.connor.base": "Error: No module named 'sqlalchemy'",
+          "forge.connor.connor_system": "Error: No module named 'sqlalchemy'",
+          "forge.connor.sra": "Error: No module named 'sqlalchemy'",
+          "forge.connor.la": "Error: No module named 'sqlalchemy'",
+          "forge.connor.uba": "Error: No module named 'sqlalchemy'",
+          "forge.connor.aa": "Error: No module named 'sqlalchemy'",
+          "forge.connor.gap": "Error: No module named 'sqlalchemy'",
+          "forge.connor.mbr": "Error: No module named 'sqlalchemy'"
+        }
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Inter-Module Relationships",
+      "test_name": "Circular Dependency Check",
+      "status": "PASS",
+      "message": "No circular dependencies detected",
+      "details": {},
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Dependency Trees",
+      "test_name": "Poetry Lock Analysis",
+      "status": "PASS",
+      "message": "Found 0 locked packages",
+      "details": {
+        "package_count": 0
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Dependency Trees",
+      "test_name": "Critical Dependencies",
+      "status": "WARNING",
+      "message": "Missing 1 critical dependencies",
+      "details": {
+        "missing": [
+          "sqlalchemy"
+        ],
+        "available": [
+          "click",
+          "fastapi",
+          "uvicorn",
+          "pydantic",
+          "tenacity",
+          "aiohttp",
+          "litellm",
+          "openai",
+          "chromadb"
+        ]
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "System Synchronization",
+      "test_name": "Synchronization Test",
+      "status": "FAIL",
+      "message": "Error testing system synchronization: No module named 'sqlalchemy'",
+      "details": {
+        "error": "No module named 'sqlalchemy'"
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    },
+    {
+      "component": "Performance",
+      "test_name": "Import Benchmarks",
+      "status": "PASS",
+      "message": "Good import performance: 0.000s average",
+      "details": {
+        "import_times": {
+          "forge.connor.base": -1,
+          "forge.connor.connor_system": -1,
+          "forge.connor.sra": -1,
+          "forge.connor.la": -1
+        },
+        "average": 0
+      },
+      "duration": 0.0,
+      "timestamp": "2025-09-01 02:37:58"
+    }
+  ]
+}

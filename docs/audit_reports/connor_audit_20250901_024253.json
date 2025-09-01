@@ -1,11 +1,11 @@
 {
-  "timestamp": "2025-09-01 02:58:22",
-  "total_duration": 3.461361885070801,
+  "timestamp": "2025-09-01 02:42:53",
+  "total_duration": 3.2352709770202637,
   "total_tests": 58,
-  "health_score": 98.27586206896551,
+  "health_score": 93.10344827586206,
   "summary_by_status": {
-    "PASS": 57,
-    "WARNING": 1
+    "PASS": 54,
+    "WARNING": 4
   },
   "summary_by_component": {
     "Core Modules": {
@@ -69,21 +69,21 @@
       "SKIP": 0
     },
     "Lifecycle Daemons": {
-      "PASS": 2,
+      "PASS": 1,
       "FAIL": 0,
-      "WARNING": 0,
+      "WARNING": 1,
       "SKIP": 0
     },
     "Memory Index": {
-      "PASS": 2,
+      "PASS": 1,
       "FAIL": 0,
-      "WARNING": 0,
+      "WARNING": 1,
       "SKIP": 0
     },
     "Daisy-Chained Logic": {
-      "PASS": 1,
+      "PASS": 0,
       "FAIL": 0,
-      "WARNING": 0,
+      "WARNING": 1,
       "SKIP": 0
     },
     "Edge Cases & Fallbacks": {
@@ -133,7 +133,7 @@
     {
       "priority": "LOW",
       "category": "Maintenance",
-      "issue": "Components with warnings: Orphaned Files",
+      "issue": "Components with warnings: Daisy-Chained Logic, Orphaned Files, Memory Index, Lifecycle Daemons",
       "recommendation": "Address warning conditions to improve system reliability",
       "action": "Review detailed audit results for specific warning fixes"
     }
@@ -154,8 +154,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/base.py"
       },
-      "duration": 2.1425416469573975,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.0027103424072266,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -170,8 +170,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/connor_system.py"
       },
-      "duration": 7.62939453125e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 4.291534423828125e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -184,8 +184,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/sra.py"
       },
-      "duration": 3.5762786865234375e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.384185791015625e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -201,8 +201,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/la.py"
       },
-      "duration": 3.0994415283203125e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.384185791015625e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -219,8 +219,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/uba.py"
       },
-      "duration": 3.5762786865234375e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.1457672119140625e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -236,8 +236,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/aa.py"
       },
-      "duration": 2.6226043701171875e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.86102294921875e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -255,8 +255,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/gap.py"
       },
-      "duration": 3.5762786865234375e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.6226043701171875e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Core Modules",
@@ -270,8 +270,8 @@
         ],
         "module_path": "/home/runner/work/Connor/Connor/autogpts/forge/forge/connor/mbr.py"
       },
-      "duration": 3.5762786865234375e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.1457672119140625e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent System",
@@ -282,8 +282,8 @@
         "agent_id": "test_agent",
         "agent_type": "Simple Reflex Agent"
       },
-      "duration": 5.9604644775390625e-06,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 5.0067901611328125e-06,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Connor System",
@@ -291,10 +291,10 @@
       "status": "PASS",
       "message": "Successfully initialized Connor system",
       "details": {
-        "init_time": 0.4796261787414551
+        "init_time": 0.0014524459838867188
       },
-      "duration": 0.4796261787414551,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 0.0014524459838867188,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Connor System",
@@ -303,7 +303,7 @@
       "message": "Successfully retrieved system status",
       "details": {
         "status": {
-          "system_id": "3f2d1e10-3139-4392-a4b7-8e760e2005a1",
+          "system_id": "d953c4b9-8572-470e-942b-c517fdc658bc",
           "total_agents": 13,
           "agent_distribution": {
             "Simple Reflex Agent": 3,
@@ -331,7 +331,7 @@
         }
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -343,8 +343,8 @@
           "SimpleReflexAgent"
         ]
       },
-      "duration": 2.8371810913085938e-05,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.765655517578125e-05,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -355,7 +355,7 @@
         "class_name": "SimpleReflexAgent"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -367,8 +367,8 @@
           "LearningAgent"
         ]
       },
-      "duration": 3.2901763916015625e-05,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 4.792213439941406e-05,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -379,7 +379,7 @@
         "class_name": "LearningAgent"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -391,8 +391,8 @@
           "UtilityBasedAgent"
         ]
       },
-      "duration": 2.5987625122070312e-05,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.86102294921875e-05,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -403,7 +403,7 @@
         "class_name": "UtilityBasedAgent"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -415,8 +415,8 @@
           "ApprenticeAgent"
         ]
       },
-      "duration": 3.9577484130859375e-05,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.5272369384765625e-05,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -427,7 +427,7 @@
         "class_name": "ApprenticeAgent"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -439,8 +439,8 @@
           "GoalBasedAgentPlanner"
         ]
       },
-      "duration": 2.5033950805664062e-05,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.5272369384765625e-05,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -451,7 +451,7 @@
         "class_name": "GoalBasedAgentPlanner"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -463,8 +463,8 @@
           "ModelBasedReflexAgent"
         ]
       },
-      "duration": 1.430511474609375e-05,
-      "timestamp": "2025-09-01 02:58:21"
+      "duration": 2.1457672119140625e-05,
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Agent Types",
@@ -475,7 +475,7 @@
         "class_name": "ModelBasedReflexAgent"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Memory System",
@@ -489,7 +489,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "CLI Interfaces",
@@ -500,7 +500,7 @@
         "file_size": 9505
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "CLI Interfaces",
@@ -511,7 +511,7 @@
         "file_size": 34129
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "CLI Interfaces",
@@ -522,7 +522,7 @@
         "file_size": 14200
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Configuration",
@@ -543,7 +543,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Configuration",
@@ -551,10 +551,10 @@
       "status": "PASS",
       "message": "File readable",
       "details": {
-        "file_size": 284
+        "file_size": 620
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Configuration",
@@ -565,7 +565,7 @@
         "file_size": 10148
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Configuration",
@@ -576,7 +576,7 @@
         "file_size": 1526
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Dependencies",
@@ -587,7 +587,7 @@
         "file_size": 429612
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Dependencies",
@@ -598,7 +598,7 @@
         "file_size": 1827
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "File Structure",
@@ -609,18 +609,18 @@
         "file_count": 19
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "File Structure",
       "test_name": "Directory autogpts/forge/forge/memory",
       "status": "PASS",
-      "message": "Directory exists with 14 items",
+      "message": "Directory exists with 8 items",
       "details": {
-        "file_count": 14
+        "file_count": 8
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "File Structure",
@@ -631,18 +631,18 @@
         "file_count": 4
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "File Structure",
       "test_name": "Directory docs",
       "status": "PASS",
-      "message": "Directory exists with 116 items",
+      "message": "Directory exists with 110 items",
       "details": {
-        "file_count": 116
+        "file_count": 110
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "File Structure",
@@ -651,7 +651,7 @@
       "message": "All Python packages properly initialized",
       "details": {},
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Communication Bus",
@@ -662,7 +662,7 @@
         "message_type": "AgentMessage"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Communication Bus",
@@ -674,7 +674,7 @@
         "receiver_type": "Simple Reflex Agent"
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Lifecycle Daemons",
@@ -694,31 +694,25 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Lifecycle Daemons",
       "test_name": "Memory Inheritance",
-      "status": "PASS",
-      "message": "Memory inheritance infrastructure available",
+      "status": "WARNING",
+      "message": "Memory inheritance capabilities limited",
       "details": {},
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Memory Index",
       "test_name": "Memory Module Availability",
-      "status": "PASS",
-      "message": "Found 3 memory modules",
-      "details": {
-        "modules": [
-          "forge.memory.vector_memory",
-          "forge.memory.memory_store",
-          "forge.memory.pattern_recognition"
-        ]
-      },
+      "status": "WARNING",
+      "message": "Limited memory module availability",
+      "details": {},
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:21"
+      "timestamp": "2025-09-01 02:42:52"
     },
     {
       "component": "Memory Index",
@@ -729,22 +723,16 @@
         "results_count": 1
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Daisy-Chained Logic",
       "test_name": "Agent Chain Processing",
-      "status": "PASS",
-      "message": "Tested 3 agents in chain",
-      "details": {
-        "chain_results": [
-          "Agent 1 (AgentType.SRA): No process_request method",
-          "Agent 2 (AgentType.MBR): No process_request method",
-          "Agent 3 (AgentType.GAP): No process_request method"
-        ]
-      },
+      "status": "WARNING",
+      "message": "Limited agent types available for chain test: 0",
+      "details": {},
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Edge Cases & Fallbacks",
@@ -760,7 +748,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Edge Cases & Fallbacks",
@@ -768,10 +756,10 @@
       "status": "PASS",
       "message": "Timeout mechanisms functional",
       "details": {
-        "test_duration": 0.10038113594055176
+        "test_duration": 0.19171881675720215
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Automation Hooks",
@@ -789,7 +777,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Automation Hooks",
@@ -810,13 +798,13 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Orphaned Files",
       "test_name": "Potential Orphaned Files",
       "status": "WARNING",
-      "message": "Found 165 potentially orphaned files",
+      "message": "Found 162 potentially orphaned files",
       "details": {
         "candidates": [
           "demo_connor.py",
@@ -832,7 +820,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Orphaned Files",
@@ -843,7 +831,7 @@
         "dependency_count": 0
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Inter-Module Relationships",
@@ -856,11 +844,11 @@
           "forge.connor.connor_system": [
             "forge.connor.aa",
             "forge.connor.la",
-            "forge.connor.uba",
-            "forge.connor.base",
             "forge.connor.sra",
             "forge.connor.mbr",
-            "forge.connor.gap"
+            "forge.connor.base",
+            "forge.connor.gap",
+            "forge.connor.uba"
           ],
           "forge.connor.sra": [
             "forge.connor.base"
@@ -883,7 +871,7 @@
         }
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Inter-Module Relationships",
@@ -892,7 +880,7 @@
       "message": "No circular dependencies detected",
       "details": {},
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Dependency Trees",
@@ -903,7 +891,7 @@
         "package_count": 0
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Dependency Trees",
@@ -925,7 +913,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "System Synchronization",
@@ -942,7 +930,7 @@
         ]
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "System Synchronization",
@@ -953,7 +941,7 @@
         "memory_ops": 3
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     },
     {
       "component": "Performance",
@@ -962,15 +950,15 @@
       "message": "Good import performance: 0.000s average",
       "details": {
         "import_times": {
-          "forge.connor.base": 5.4836273193359375e-06,
-          "forge.connor.connor_system": 3.0994415283203125e-06,
-          "forge.connor.sra": 3.337860107421875e-06,
-          "forge.connor.la": 2.1457672119140625e-06
+          "forge.connor.base": 8.106231689453125e-06,
+          "forge.connor.connor_system": 2.86102294921875e-06,
+          "forge.connor.sra": 2.384185791015625e-06,
+          "forge.connor.la": 2.6226043701171875e-06
         },
-        "average": 3.516674041748047e-06
+        "average": 3.993511199951172e-06
       },
       "duration": 0.0,
-      "timestamp": "2025-09-01 02:58:22"
+      "timestamp": "2025-09-01 02:42:53"
     }
   ]
 }
