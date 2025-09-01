@@ -28,11 +28,19 @@ def create_parser():
     subparsers.add_parser("start", help="Start Connor system")
     subparsers.add_parser("stop", help="Stop Connor system")
     subparsers.add_parser("restart", help="Restart Connor system")
-    subparsers.add_parser("status", help="Show system status")
+    
+    # Status with optional continuous flag
+    status_parser = subparsers.add_parser("status", help="Show system status")
+    status_parser.add_argument("--continuous", action="store_true", help="Continuous monitoring")
     
     # Maintenance operations
     subparsers.add_parser("audit", help="Run comprehensive system audit")
-    subparsers.add_parser("test", help="Run system tests")
+    
+    # Test with optional type
+    test_parser = subparsers.add_parser("test", help="Run system tests")
+    test_parser.add_argument("--type", choices=["all", "unit", "integration", "performance"], 
+                           default="all", help="Test type to run")
+    
     subparsers.add_parser("setup", help="Setup/reinstall system")
     subparsers.add_parser("health", help="Health check")
     
