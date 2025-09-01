@@ -356,8 +356,8 @@ python dialog_training.py
 ### CLI Tools
 
 ```bash
-# Interactive Connor CLI
-python connor_cli.py
+# Interactive Connor CLI (single entry point)
+python launch_connor.py
 
 # System demonstration
 python demo_connor.py
@@ -415,7 +415,8 @@ Connor/
 │   └── latest_connor_model.json   # Latest trained model
 ├── system_audit.py               # System health auditor
 ├── dialog_training.py            # Dialog training system
-├── connor_cli.py                 # Interactive CLI
+├── launch_connor.py              # Single unified entry point
+├── connor_cli.py                 # Backend CLI automation (used by launch_connor.py)
 ├── connor_config.json            # Main configuration
 └── README.md                     # This file
 ```
