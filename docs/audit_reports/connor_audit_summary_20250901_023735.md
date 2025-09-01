@@ -1,7 +1,7 @@
 # Connor System Audit Report
 
-**Timestamp:** 2025-09-01 02:37:58  
-**Duration:** 2.88 seconds  
+**Timestamp:** 2025-09-01 02:37:35  
+**Duration:** 5.89 seconds  
 **Total Tests:** 47  
 **Health Score:** 48.9%  
 
@@ -54,7 +54,7 @@
 
 ### 3. Maintenance 🟢
 
-**Issue:** Components with warnings: Memory Index, Dependency Trees, Orphaned Files  
+**Issue:** Components with warnings: Orphaned Files, Memory Index, Dependency Trees  
 **Recommendation:** Address warning conditions to improve system reliability  
 **Action:** `Review detailed audit results for specific warning fixes`
 
@@ -62,28 +62,28 @@
 
 ### Core Modules
 
-- ❌ **Import forge.connor.base** (1.783s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.connor_system** (0.001s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.sra** (0.001s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.la** (0.001s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.uba** (0.001s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.aa** (0.001s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.gap** (0.001s): Import failed: No module named 'sqlalchemy'
-- ❌ **Import forge.connor.mbr** (0.001s): Import failed: No module named 'sqlalchemy'
+- ❌ **Import forge.connor.base** (1.720s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.connor_system** (0.001s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.sra** (0.001s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.la** (0.001s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.uba** (0.001s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.aa** (0.001s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.gap** (0.001s): Import failed: No module named 'fastapi'
+- ❌ **Import forge.connor.mbr** (0.001s): Import failed: No module named 'fastapi'
 ### Agent System
 
-- ❌ **AgentConfig Creation** (0.000s): Failed to create agent config: No module named 'sqlalchemy'
+- ❌ **AgentConfig Creation** (0.000s): Failed to create agent config: No module named 'fastapi'
 ### Connor System
 
-- ❌ **System Initialization** (0.000s): Failed to initialize Connor system: No module named 'sqlalchemy'
+- ❌ **System Initialization** (0.000s): Failed to initialize Connor system: No module named 'fastapi'
 ### Agent Types
 
-- ❌ **SRA Agent Import** (0.000s): Failed to import: No module named 'sqlalchemy'
-- ❌ **LA Agent Import** (0.000s): Failed to import: No module named 'sqlalchemy'
-- ❌ **UBA Agent Import** (0.000s): Failed to import: No module named 'sqlalchemy'
-- ❌ **AA Agent Import** (0.000s): Failed to import: No module named 'sqlalchemy'
-- ❌ **GAP Agent Import** (0.000s): Failed to import: No module named 'sqlalchemy'
-- ❌ **MBR Agent Import** (0.000s): Failed to import: No module named 'sqlalchemy'
+- ❌ **SRA Agent Import** (0.000s): Failed to import: No module named 'fastapi'
+- ❌ **LA Agent Import** (0.000s): Failed to import: No module named 'fastapi'
+- ❌ **UBA Agent Import** (0.000s): Failed to import: No module named 'fastapi'
+- ❌ **AA Agent Import** (0.000s): Failed to import: No module named 'fastapi'
+- ❌ **GAP Agent Import** (0.000s): Failed to import: No module named 'fastapi'
+- ❌ **MBR Agent Import** (0.000s): Failed to import: No module named 'fastapi'
 ### Memory System
 
 - ✅ **Memory Module Import** (0.000s): Successfully imported memory modules
@@ -107,24 +107,24 @@
 - ✅ **Directory autogpts/forge/forge/connor** (0.000s): Directory exists with 12 items
 - ✅ **Directory autogpts/forge/forge/memory** (0.000s): Directory exists with 8 items
 - ✅ **Directory scripts** (0.000s): Directory exists with 4 items
-- ✅ **Directory docs** (0.000s): Directory exists with 103 items
+- ✅ **Directory docs** (0.000s): Directory exists with 101 items
 - ✅ **Package Initialization** (0.000s): All Python packages properly initialized
 ### Communication Bus
 
-- ❌ **Communication Bus Test** (0.000s): Error testing communication bus: No module named 'sqlalchemy'
+- ❌ **Communication Bus Test** (0.000s): Error testing communication bus: No module named 'fastapi'
 ### Lifecycle Daemons
 
-- ❌ **Lifecycle Daemon Test** (0.000s): Error testing lifecycle daemons: No module named 'sqlalchemy'
+- ❌ **Lifecycle Daemon Test** (0.000s): Error testing lifecycle daemons: No module named 'fastapi'
 ### Memory Index
 
 - ⚠️ **Memory Module Availability** (0.000s): Limited memory module availability
 - ✅ **Vector Database Integration** (0.000s): ChromaDB integration working
 ### Daisy-Chained Logic
 
-- ❌ **Daisy Chain Test** (0.000s): Error testing daisy-chained logic: No module named 'sqlalchemy'
+- ❌ **Daisy Chain Test** (0.000s): Error testing daisy-chained logic: No module named 'fastapi'
 ### Edge Cases & Fallbacks
 
-- ❌ **Edge Case Test** (0.000s): Error testing edge cases: No module named 'sqlalchemy'
+- ❌ **Edge Case Test** (0.000s): Error testing edge cases: No module named 'fastapi'
 ### Automation Hooks
 
 - ✅ **Script Validation** (0.000s): Tested 6 automation scripts
@@ -140,13 +140,13 @@
 ### Dependency Trees
 
 - ✅ **Poetry Lock Analysis** (0.000s): Found 0 locked packages
-- ⚠️ **Critical Dependencies** (0.000s): Missing 1 critical dependencies
+- ⚠️ **Critical Dependencies** (0.000s): Missing 2 critical dependencies
 ### System Synchronization
 
-- ❌ **Synchronization Test** (0.000s): Error testing system synchronization: No module named 'sqlalchemy'
+- ❌ **Synchronization Test** (0.000s): Error testing system synchronization: No module named 'fastapi'
 ### Performance
 
 - ✅ **Import Benchmarks** (0.000s): Good import performance: 0.000s average
 
 ---
-*Report generated by Connor System Auditor on 2025-09-01 02:37:58*
+*Report generated by Connor System Auditor on 2025-09-01 02:37:35*
